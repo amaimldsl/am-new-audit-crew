@@ -1,0 +1,47 @@
+global_regulations_research_task:
+  description: >
+    Conduct a thorough research about {topic}'s global regulations'
+    Make sure you get all global regulations  and relevant information given
+    the current year is 2025.
+  expected_output: >
+    A list with 10 bullet points about the top global regulations on {topic}
+  agent: global_regulations_researcher
+
+
+quality_assurance_task:
+  description: >
+    Review the context you got and verify it actually aligns with the requested task.
+  expected_output: >
+    evaluation results of the other agents tasks and incase it is not in alignment with the tasks, 
+    to share back the guidance to the agent with the directions to align the task to the the intended 
+    task
+  agent: quality_assurance_expert
+
+
+
+
+
+
+
+
+
+reporting_task:
+  description: >
+    Review the context you got and expand each topic into a full section for a report.
+    Make sure the report is detailed and contains any and all relevant information.
+  expected_output: >
+    A fully fledged report with the main topics, each with a full section of information.
+    Formatted as markdown without '```'
+  agent: reporting_analyst
+
+uae_regulations_research_task:
+  description: "Investigate UAE-specific regulations concerning {topic}. Summarize key points and any unique aspects."
+  agent: uae_regulations_researcher
+
+sub_processes_research_task:
+  description: "Identify and analyze key sub-processes within {topic}. Provide a breakdown of these processes."
+  agent: sub_processes_researcher
+
+standards_research_task:
+  description: "Research and compile relevant standards applicable to {topic}. List and briefly describe each standard."
+  agent: standards_researcher
