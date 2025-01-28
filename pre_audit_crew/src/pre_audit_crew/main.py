@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 import sys
+import os
 import warnings
-
+from dotenv import load_dotenv
 from crew import PreAuditCrew
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
@@ -18,8 +19,17 @@ def run():
 
     audit_subject = input("What is the audit subject? : ")
 
+
+    # Load environment variables from .env file
+    load_dotenv()
+
+    # Now you can access the API key
+    serper_api_key = os.getenv("SERPER_API_KEY")
+
     inputs = {
-        'topic': audit_subject
+        'topic': audit_subject,
+        'serper_api_key' : serper_api_key,
+
     }
     PreAuditCrew().crew().kickoff(inputs=inputs)
 
