@@ -17,7 +17,8 @@ def run():
     Run the crew.
     """
 
-    audit_subject = input("What is the audit subject? : ")
+    #audit_subject = input("What is the audit subject? : ")
+    audit_subject = "Data Governance"
 
 
     # Load environment variables from .env file

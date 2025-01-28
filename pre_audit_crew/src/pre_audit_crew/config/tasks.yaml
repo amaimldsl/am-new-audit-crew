@@ -1,47 +1,72 @@
 global_regulations_research_task:
   description: >
-    Conduct a thorough research about {topic}'s global regulations'
-    Make sure you get all global regulations  and relevant information given
-    the current year is 2025.
+    Conduct thorough research on up-to-date global {topic} regulations from 
+    reputable sources, including government websites, industry associations, 
+    and international organizations.Compile a comprehensive list of top 20 global {topic} regulations that 
+    should considered.Provide detailed information on each regulation, including relevant 
+    sections, dates of implementation, and compliance requirements.
+
   expected_output: >
-    A list with 10 bullet points about the top global regulations on {topic}
+    A report outlining the top 20 global {topic} regulations, including descriptions, key dates, and compliance guidance.
+    Listing each regulation, along with its corresponding date of implementation and relevant details.
+
   agent: global_regulations_researcher
 
-
-quality_assurance_task:
-  description: >
-    Review the context you got and verify it actually aligns with the requested task.
-  expected_output: >
-    evaluation results of the other agents tasks and incase it is not in alignment with the tasks, 
-    to share back the guidance to the agent with the directions to align the task to the the intended 
-    task
-  agent: quality_assurance_expert
-
-
-
-
-
-
-
-
-
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
-  expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
-
 uae_regulations_research_task:
-  description: "Investigate UAE-specific regulations concerning {topic}. Summarize key points and any unique aspects."
+  description: ->
+    Conduct thorough research on up-to-date {topic} UAE regulations from 
+    reputable sources, including government websites, central bank and other UAE regulatory authorities.
+    Compile a comprehensive list of top 20 {topic} UAE regulations that should be considered.
+    Provide detailed information on each regulation, including relevant 
+    sections, dates of implementation, and compliance requirements.
+
+  expected_output: >
+    A report outlining the top 20 {topic} UAE regulations, including descriptions, key dates, and compliance guidance.
+    Listing each regulation, along with its corresponding date of implementation and relevant details.
+
   agent: uae_regulations_researcher
 
 sub_processes_research_task:
-  description: "Identify and analyze key sub-processes within {topic}. Provide a breakdown of these processes."
+  description: ->
+    Conduct in-depth research on the {topic} domain, exploring its underlying sub-processes and interactions.
+    Compile a comprehensive list of sub-processes, including their definitions, inputs, outputs, and relationships with other sub-processes.
+    Present the results in clear, concise bullet points that facilitate understanding and analysis.
+  expected_output: ->
+    A detailed report outlining the key sub-processes within the {topic} domain, with a bulleted list of 
+    sub-processes, including their definitions, inputs, outputs, and relationships
   agent: sub_processes_researcher
 
 standards_research_task:
-  description: "Research and compile relevant standards applicable to {topic}. List and briefly describe each standard."
+  description: ->
+    Research and analyze various {topic} standards from reputable sources, including industry associations, 
+    government agencies, and international organizations.Also Compile a comprehensive list of key standards, 
+    including their titles, descriptions, requirements, and compliance dates. Present the results in clear, 
+    concise bullet points that facilitate understanding and implementation.
+  expected_output: ->
+    A detailed report outlining the key {topic} standards and their requirements.Also a bulleted list of 
+    standards, including their titles, descriptions, and compliance details.
   agent: standards_researcher
+
+quality_assurance_task:
+  description: >
+    Conduct a detailed QA review of each contribution, verifying that it matches the original request 
+    and meets the required completeness and accuracy standards. Evaluate the content for clarity, relevance, 
+    and consistency with established guidelines and best practices. Communicate any feedback or recommendations 
+    to the contributing expert or contributor, requesting enhancements or corrections as needed.
+  expected_output: >
+    A comprehensive QA report highlighting any issues or discrepancies found during the review process. Revised contributions 
+    that have been enhanced or corrected to meet the original requirements.
+  agent: quality_assurance_expert
+
+reporting_task:
+  description: >
+    Gather all relevant contributions from team members, including written content, data, 
+    and visual elements. Organize the contributions into clear sections, ensuring logical flow 
+    and continuity throughout the report. Edit and refine the report to ensure clarity, concision, 
+    and consistency in writing style.
+
+  expected_output: >
+    A comprehensive, professionally written report that integrates multiple contributions from team members, with
+    cohesive document with clearly labeled sections for each contributor's input without '```'
+  
+  agent: reporting_analyst

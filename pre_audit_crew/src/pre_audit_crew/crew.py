@@ -17,9 +17,9 @@ class PreAuditCrew():
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
     
-    llm = LLM(model='ollama/mistral')
+    llm = LLM(model='ollama/phi4')
 
-    crew_llm = LLM(model="ollama/mistral")
+    crew_llm = LLM(model="ollama/phi4")
 
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
@@ -85,7 +85,7 @@ class PreAuditCrew():
 
     @agent
     def standards_researcher(self) -> Agent:
-        standards_researcher_config = self.agents_config['standards_researcher']
+        standards_researcher_config = self.agents_config['abc']
         
         # Access the Serper API Key from the environment
         serper_api_key = os.getenv("SERPER_API_KEY")
@@ -136,7 +136,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['sub_processes_research_task'],
             llm=self.llm,
-            expected_output="list of all subprocesses"
+            
         )
 
     @task
@@ -144,7 +144,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['global_regulations_research_task'],
             llm=self.llm,
-            expected_output="list of all global regulations under {topic}",
+            
         )
 
     @task
@@ -152,7 +152,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['uae_regulations_research_task'],
             llm=self.llm,
-            expected_output="list of all UAE regulations under {topic}",
+            
         )
 
     @task
@@ -160,7 +160,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['standards_research_task'],
             llm=self.llm,
-            expected_output="list of all standards",
+            
         )
 
     @task
@@ -168,7 +168,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['quality_assurance_task'],
             llm=self.llm,
-            expected_output="QA verified output according to the reviewed tasks",
+            
         )
 
     @task
