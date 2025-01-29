@@ -85,7 +85,7 @@ class PreAuditCrew():
 
     @agent
     def standards_researcher(self) -> Agent:
-        standards_researcher_config = self.agents_config['standard_researcher']
+        standards_researcher_config = self.agents_config['standards_researcher']
         
         # Access the Serper API Key from the environment
         serper_api_key = os.getenv("SERPER_API_KEY")
