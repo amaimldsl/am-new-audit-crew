@@ -40,7 +40,7 @@ sub_processes_researcher:
     academic papers, industry reports, and experimental data, ensuring that your 
     understanding remains cutting-edge and comprehensive. 
 
-abc:
+standards_researcher:
   role: ->
     {topic} Standards researcher
   goal: ->
@@ -55,7 +55,7 @@ quality_assurance_expert:
   role: >
     {topic} Quality Assurance Expert 
   goal: >
-    Perform Quality Assurance on inputs provided by other agents on {topic}; including global 
+    Perform Quality Assurance on inputs provided by other researchers on {topic}; including global 
     and local regulations, sub-processes, standards and other related topics.
   backstory: >
     You are expert quality assurance specialist with expertise in 
@@ -67,12 +67,9 @@ reporting_analyst:
   role: >
     {topic} Reporting Expert
   goal: >
-    Create detailed report on {topic}, that compiles inputs provided from other agents and 
-    reviewed by Quality Assurance Expert.
+    Create detailed report on {topic}, that compiles all the inputs provided from other researchers, without missing any.
   backstory: >
     You are data consolidation specialist with expertise in aggregating complex {topic} information from 
     diverse sources and workers into concise, professionally formatted reports. 
     With your knowledge and capabilities, you can quickly integrate data from various 
-    contributors, including researchers, subject matter experts, and industry 
-    professionals. Through your excellent ability to distill complex information into clear, concise language, 
-    You facilitate informed decision-making and knowledge sharing across various stakeholders.
+    researchers. 

@@ -85,7 +85,7 @@ class PreAuditCrew():
 
     @agent
     def standards_researcher(self) -> Agent:
-        standards_researcher_config = self.agents_config['abc']
+        standards_researcher_config = self.agents_config['standard_researcher']
         
         # Access the Serper API Key from the environment
         serper_api_key = os.getenv("SERPER_API_KEY")
@@ -136,8 +136,7 @@ class PreAuditCrew():
         return Task(
             config=self.tasks_config['sub_processes_research_task'],
             llm=self.llm,
-            
-        )
+          )
 
     @task
     def global_regulations_research_task(self) -> Task:

@@ -1,3 +1,14 @@
+sub_processes_research_task:
+  description: ->
+    Conduct in-depth research on the {topic} domain, exploring its underlying sub-processes and interactions.
+    Compile a comprehensive list of sub-processes, including their definitions, inputs, outputs, and relationships with other sub-processes.
+    Present the results in clear, concise bullet points that facilitate understanding and analysis. Share the output
+    with quality assurance expert for his review and feedback.
+  expected_output: ->
+    A detailed report outlining the key sub-processes within the {topic} domain, with a bulleted list of 
+    sub-processes, including their definitions, inputs, outputs, and relationships
+  agent: sub_processes_researcher
+
 global_regulations_research_task:
   description: >
     Conduct thorough research on up-to-date global {topic} regulations from 
@@ -18,7 +29,8 @@ uae_regulations_research_task:
     reputable sources, including government websites, central bank and other UAE regulatory authorities.
     Compile a comprehensive list of top 20 {topic} UAE regulations that should be considered.
     Provide detailed information on each regulation, including relevant 
-    sections, dates of implementation, and compliance requirements.
+    sections, dates of implementation, and compliance requirements. Share the output
+    with quality assurance expert for his review and feedback.
 
   expected_output: >
     A report outlining the top 20 {topic} UAE regulations, including descriptions, key dates, and compliance guidance.
@@ -26,22 +38,13 @@ uae_regulations_research_task:
 
   agent: uae_regulations_researcher
 
-sub_processes_research_task:
-  description: ->
-    Conduct in-depth research on the {topic} domain, exploring its underlying sub-processes and interactions.
-    Compile a comprehensive list of sub-processes, including their definitions, inputs, outputs, and relationships with other sub-processes.
-    Present the results in clear, concise bullet points that facilitate understanding and analysis.
-  expected_output: ->
-    A detailed report outlining the key sub-processes within the {topic} domain, with a bulleted list of 
-    sub-processes, including their definitions, inputs, outputs, and relationships
-  agent: sub_processes_researcher
-
 standards_research_task:
   description: ->
     Research and analyze various {topic} standards from reputable sources, including industry associations, 
     government agencies, and international organizations.Also Compile a comprehensive list of key standards, 
     including their titles, descriptions, requirements, and compliance dates. Present the results in clear, 
-    concise bullet points that facilitate understanding and implementation.
+    concise bullet points that facilitate understanding and implementation. Share the output
+    with quality assurance expert for his review and feedback.
   expected_output: ->
     A detailed report outlining the key {topic} standards and their requirements.Also a bulleted list of 
     standards, including their titles, descriptions, and compliance details.
@@ -49,24 +52,23 @@ standards_research_task:
 
 quality_assurance_task:
   description: >
-    Conduct a detailed QA review of each contribution, verifying that it matches the original request 
-    and meets the required completeness and accuracy standards. Evaluate the content for clarity, relevance, 
-    and consistency with established guidelines and best practices. Communicate any feedback or recommendations 
-    to the contributing expert or contributor, requesting enhancements or corrections as needed.
+    Review and verify the research results from all researchers. Suggest improvements if needed. Also verify 
+    that researcher results matches the original request and meets the required completeness and accuracy standards. 
+    Communicate any feedback or recommendations 
+    to the researcher to reconsider and revise as needed.
   expected_output: >
-    A comprehensive QA report highlighting any issues or discrepancies found during the review process. Revised contributions 
+    Communicate with the researchers for needed enhancement. Provide  QA report highlighting any issues or discrepancies found during the review process. Revised contributions 
     that have been enhanced or corrected to meet the original requirements.
   agent: quality_assurance_expert
 
 reporting_task:
   description: >
-    Gather all relevant contributions from team members, including written content, data, 
-    and visual elements. Organize the contributions into clear sections, ensuring logical flow 
-    and continuity throughout the report. Edit and refine the report to ensure clarity, concision, 
-    and consistency in writing style.
+    Gather and compile the findings from all researchers. Organize the findings into clear sections, 
+    ensuring logical flow and continuity throughout the report. Edit and refine the report to ensure 
+    clarity, concision, and consistency in writing style. Include all researchers input and do not miss any.
 
   expected_output: >
-    A comprehensive, professionally written report that integrates multiple contributions from team members, with
-    cohesive document with clearly labeled sections for each contributor's input without '```'
+    A comprehensive, professionally written report that integrates multiple findings from all researchers, with
+    cohesive document with clearly labeled sections for each researcher's input without '```'
   
   agent: reporting_analyst
