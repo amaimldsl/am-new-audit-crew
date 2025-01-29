@@ -17,9 +17,12 @@ class PreAuditCrew():
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
     
+    #llm = LLM(model="ollama/mistral")
+
+    #crew_llm = LLM(model="ollama/mistral")
+
     llm = LLM(model="ollama/mistral")
 
-    crew_llm = LLM(model="ollama/mistral")
 
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
@@ -189,5 +192,5 @@ class PreAuditCrew():
             tasks=self.tasks,  # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
-            manager_llm=self.crew_llm,
+            manager_llm=self.llm,
         )
