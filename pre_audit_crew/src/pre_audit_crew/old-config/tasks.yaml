@@ -1,0 +1,74 @@
+sub_processes_research_task:
+  description: ->
+    Conduct in-depth research on the {topic} domain, exploring its underlying sub-processes and interactions.
+    Compile a comprehensive list of sub-processes, including their definitions, inputs, outputs, and relationships with other sub-processes.
+    Present the results in clear, concise bullet points that facilitate understanding and analysis. Share the output
+    with quality assurance expert for his review and feedback.
+  expected_output: ->
+    A detailed report outlining the key sub-processes within the {topic} domain, with a bulleted list of 
+    sub-processes, including their definitions, inputs, outputs, and relationships
+  agent: sub_processes_researcher
+
+global_regulations_research_task:
+  description: >
+    Conduct thorough research on up-to-date global {topic} regulations from 
+    reputable sources, including government websites, industry associations, 
+    and international organizations.Compile a comprehensive list of top 20 global {topic} regulations that 
+    should considered.Provide detailed information on each regulation, including relevant 
+    sections, dates of implementation, and compliance requirements.
+
+  expected_output: >
+    A report outlining the top 20 global {topic} regulations, including descriptions, key dates, and compliance guidance.
+    Listing each regulation, along with its corresponding date of implementation and relevant details.
+
+  agent: global_regulations_researcher
+
+uae_regulations_research_task:
+  description: ->
+    Conduct thorough research on up-to-date {topic} UAE regulations from 
+    reputable sources, including government websites, central bank and other UAE regulatory authorities.
+    Compile a comprehensive list of top 20 {topic} UAE regulations that should be considered.
+    Provide detailed information on each regulation, including relevant 
+    sections, dates of implementation, and compliance requirements. Share the output
+    with quality assurance expert for his review and feedback.
+
+  expected_output: >
+    A report outlining the top 20 {topic} UAE regulations, including descriptions, key dates, and compliance guidance.
+    Listing each regulation, along with its corresponding date of implementation and relevant details.
+
+  agent: uae_regulations_researcher
+
+standards_research_task:
+  description: ->
+    Research and analyze various {topic} standards from reputable sources (Globally amd within UAE) , including industry associations, 
+    government agencies, and international organizations.Also Compile a comprehensive list of key standards, 
+    including their titles, descriptions, requirements, and compliance dates. Present the results in clear, 
+    concise bullet points that facilitate understanding and implementation. Share the output
+    with quality assurance expert for his review and feedback.
+  expected_output: ->
+    A detailed report outlining the key {topic} standards and their requirements.Also a bulleted list of 
+    standards, including their titles, descriptions, and compliance details.
+  agent: standards_researcher
+
+quality_assurance_task:
+  description: >
+    Review and verify the research results from all researchers. Suggest improvements if needed. Also verify 
+    that researcher results matches the original request and meets the required completeness and accuracy standards. 
+    Communicate any feedback or recommendations 
+    to the researcher to reconsider and revise as needed.
+  expected_output: >
+    Communicate with the researchers for needed enhancement. Provide  QA report highlighting any issues or discrepancies found during the review process. Revised contributions 
+    that have been enhanced or corrected to meet the original requirements.
+  agent: quality_assurance_expert
+
+reporting_task:
+  description: >
+    Gather and compile the findings from all researchers. Organize the findings sections to have a sections for each 
+    researcher topic. Edit and refine the report to ensure that it include all points from researchers. Keep a heading for each 
+    section that outline the researcher topic, summary about the researcher topic and all the findings provided by the researcher.
+
+  expected_output: >
+    A comprehensive, professionally written report that integrates all the researchers findings. Keep a heading for each 
+    section that outline the researcher topic, summary about the researcher topic and all the findings provided by the researcher.
+  
+  agent: reporting_analyst
