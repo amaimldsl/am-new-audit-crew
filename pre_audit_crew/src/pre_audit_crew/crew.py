@@ -17,9 +17,9 @@ class PreAuditCrew():
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
     
-    llm = LLM(model='ollama/mistral')
+    llm = LLM(model="ollama/mistral")
 
-    crew_llm = LLM(model="ollama/deepseek-r1")
+    crew_llm = LLM(model="ollama/mistral")
 
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools

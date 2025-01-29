@@ -63,12 +63,12 @@ quality_assurance_task:
 
 reporting_task:
   description: >
-    Gather and compile the findings from all researchers. Organize the findings into clear sections, 
-    ensuring logical flow and continuity throughout the report. Edit and refine the report to ensure 
-    clarity, concision, and consistency in writing style. Include all researchers input and do not miss any.
+    Gather and compile the findings from all researchers. Organize the findings sections to have a sections for each 
+    researcher topic. Edit and refine the report to ensure that it include all points from researchers. Keep a heading for each 
+    section that outline the researcher topic, summary about the researcher topic and all the findings provided by the researcher.
 
   expected_output: >
-    A comprehensive, professionally written report that integrates multiple findings from all researchers, with
-    cohesive document with clearly labeled sections for each researcher's input without '```'
+    A comprehensive, professionally written report that integrates all the researchers findings. Keep a heading for each 
+    section that outline the researcher topic, summary about the researcher topic and all the findings provided by the researcher.
   
   agent: reporting_analyst
