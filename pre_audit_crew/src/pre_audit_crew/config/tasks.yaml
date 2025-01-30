@@ -1,67 +1,155 @@
 sub_processes_research_task:
-  description: Analyze the sub-processes involved in the specified topic, documenting each sub-process's purpose, inputs, outputs, and key stakeholders.
-  expected_output:
-     Detailed analysis of sub-processes.
-     Share findings with QA expert for feedback.
-     Incorporate QA feedback into the final report before submitting to the report writer.
-
+  description: >
+    Analyze and document ALL sub-processes involved in the specified topic with complete detail:
+    1. Document each sub-process completely:
+       - Full workflow documentation
+       - All inputs and outputs
+       - Every stakeholder and their role
+       - All dependencies and relationships
+    2. Maintain complete research logs
+    3. Submit comprehensive documentation for QA review
+    4. Address ALL QA feedback with specific responses
+    5. Verify completeness of documentation
+  expected_output: >
+    - Complete documentation of each sub-process
+    - Full stakeholder analysis
+    - Detailed process relationships
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - full_process_documentation
+      - stakeholder_matrix
+      - dependency_maps
+      - research_logs
+      - qa_responses
   agent: sub_processes_researcher
 
-
 global_regulations_research_task:
-  description: Conduct research on global regulations related to the specified topic and identify key compliance requirements.
-  expected_output:
-     Detailed report of global regulations and compliance requirements.
-     Share findings with QA expert for feedback.
-     Incorporate QA feedback into the final report before submitting to the report writer.
-
+  description: >
+    Research and document ALL global regulations with complete detail:
+    1. Document every regulation identified
+    2. Include full compliance requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete regulation documentation
+    - Full compliance requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - regulation_details
+      - compliance_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
   agent: global_regulations_researcher
 
 uae_regulations_research_task:
-  description: Conduct research on UAE-specific regulations related to the specified topic and identify key compliance requirements.
-  expected_output:
-     Detailed report of UAE-specific regulations and compliance requirements.
-     Share findings with QA expert for feedback.
-     Incorporate QA feedback into the final report before submitting to the report writer.
-
+  description: >
+    Document ALL UAE-specific regulations with complete detail:
+    1. Document every local regulation
+    2. Include full compliance requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete UAE regulation documentation
+    - Full compliance requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - regulation_details
+      - compliance_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
   agent: uae_regulations_researcher
 
-
 standards_research_task:
-  description: Research and analyze various standards related to the specified topic from reputable sources (globally and within the UAE).
-  expected_output:
-     Comprehensive list of key standards, including their titles, descriptions, requirements, and compliance dates.
-     Share findings with QA expert for feedback.
-     Incorporate QA feedback into the final report before submitting to the report writer.
-
+  description: >
+    Document ALL relevant standards with complete detail:
+    1. Document every applicable standard
+    2. Include full requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete standards documentation
+    - Full requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - standards_details
+      - requirements_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
   agent: standards_researcher
 
 quality_assurance_task:
-  description: Review and verify the research results from all researchers. Provide feedback or recommendations to improve accuracy, completeness, and alignment with requirements.
+  description: >
+    Review ALL research outputs with complete verification:
+    1. Verify completeness of every section
+    2. Document specific feedback for each finding
+    3. Maintain detailed feedback logs
+    4. Track all researcher responses
+    5. Verify requirement coverage
+    6. Provide final verification only when complete
   dependencies:
-     global_regulations_research_task
-     uae_specific_regulations_research_task
-     sub_processes_analysis_task
-     standards_compliance_task
-
-  expected_output:
-     Direct feedback provided to each researcher for necessary revisions or enhancements.
+    - sub_processes_research_task
+    - global_regulations_research_task
+    - uae_regulations_research_task
+    - standards_research_task
+  expected_output: >
+    - Complete verification logs
+    - Detailed feedback
+    - Requirement coverage analysis
+    - Response tracking
+    - Final verification status
+  output_format:
+    type: verification_documentation
+    includes:
+      - verification_logs
+      - feedback_matrix
+      - requirement_coverage
+      - response_tracking
+      - final_status
   agent: quality_assurance_expert
 
 reporting_task:
-  description: Compile all verified research findings into a comprehensive final report, ensuring alignment and consistency across all sections.
+  description: >
+    Create comprehensive report including ALL research findings:
+    1. Include EVERY detail from research outputs
+    2. Include ALL QA feedback and responses
+    3. Maintain cross-reference index
+    4. Create complete appendices
+    5. Verify inclusion of all inputs
   dependencies:
-     global_regulations_research_task
-     uae_specific_regulations_research_task
-     sub_processes_analysis_task
-     standards_compliance_task
-     qa_review_task
-  expected_output:
-     Executive Summary; Overview of key findings, risks, and recommendations.
-     Global Regulations Section ; Detailed analysis of global compliance requirements.
-     UAE-Specific Regulations Section; Focus on regional legal and compliance frameworks.
-     Sub-Processes Analysis; Breakdown of operational workflows and efficiency opportunities.
-     Standards Compliance Section;  Review of applicable standards and their implementation status.
-     Highlight critical areas requiring attention (e.g., compliance , high-risk processes).
-      
+    - quality_assurance_task
+  expected_output: >
+    - Complete executive summary
+    - Full research findings
+    - All QA feedback and responses
+    - Cross-reference index
+    - Complete appendices
+  output_format:
+    type: comprehensive_report
+    includes:
+      - executive_summary
+      - full_findings
+      - qa_documentation
+      - cross_references
+      - appendices
   agent: reporting_analyst
