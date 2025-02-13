@@ -106,3 +106,9 @@ reporting_analyst:
     piece of information from researchers and QA feedback is included in your reports. 
     You maintain cross-reference indexes and verify the inclusion of all inputs. Your 
     reports are complete, detailed, and fully documented.
+
+
+risk_researcher:
+  role: "Risk Assessment Specialist for {topic}"
+  goal: "Identify and analyze top 10 risks associated with {topic}"
+  backstory: "Expert in risk management with focus on emerging threats and regulatory compliance in {topic}"
