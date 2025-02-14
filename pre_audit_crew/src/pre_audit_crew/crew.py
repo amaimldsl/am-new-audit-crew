@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool
+from crewai_tools import SerperDevTool
 import os
 import time
 import logging
@@ -27,34 +27,30 @@ logging.basicConfig(
 # Error handling decorator
 def handle_api_errors(func):
     def wrapper(*args, **kwargs):
-        max_retries = 999
+        max_retries = 3  # Maximum retry attempts
         for attempt in range(max_retries):
             try:
                 return func(*args, **kwargs)
-            except (APIError, RateLimitError, APITimeoutError, Timeout, json.JSONDecodeError) as e:
-                error_type = type(e).__name__
-                if isinstance(e, json.JSONDecodeError):
-                    logging.error(f"JSON parsing failed: {str(e)}")
-                    time.sleep(10)
-                elif isinstance(e, (APITimeoutError, Timeout)):
-                    logging.warning(f"Timeout error (attempt {attempt+1}): {str(e)}")
-                    time.sleep(30)
+            except (APIError, RateLimitError, APITimeoutError, Timeout) as e:
+                if isinstance(e, (APITimeoutError, Timeout)):
+                    logging.warning(f"Timeout error (attempt {attempt + 1}): {str(e)}")
+                    time.sleep(30)  # Wait before retrying
                 elif isinstance(e, RateLimitError):
-                    logging.warning(f"Rate limit exceeded (attempt {attempt+1}): {str(e)}")
+                    logging.warning(f"Rate limit exceeded (attempt {attempt + 1}): {str(e)}")
                     time.sleep(60)
                 else:
                     logging.error(f"API Error: {str(e)}")
                     raise
-                
-                if attempt == max_retries-1:
+                if attempt == max_retries - 1:
                     logging.error("Max retries reached. Aborting.")
                     raise
             except Exception as e:
                 logging.error(f"Unexpected error: {str(e)}")
                 raise
-        return func(*args, **kwargs)
+        return func(*args, **kwargs)  # Final attempt after retries
     return wrapper
 
+# DeepSeek LLM configuration
 class DeepseekLLM(LLM):
     def __init__(self, api_key, base_url, model):
         super().__init__(
@@ -62,22 +58,10 @@ class DeepseekLLM(LLM):
             api_key=api_key,
             base_url=base_url,
             temperature=0.3,
-            max_retries=3,
-            timeout=60,
-            max_tokens=4000,
-            headers={
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
+            max_retries=5,  # Increased retries
+            timeout=120,     # Increased timeout to 120 seconds
+            max_tokens=4000
         )
-    def _parse_response(self, response):
-        try:
-            return response.json()
-        except json.JSONDecodeError:
-            logging.error("Failed to parse JSON response")
-            return {"error": "Invalid JSON response"}
-
-
 
 @CrewBase
 class PreAuditCrew():
@@ -85,53 +69,8 @@ class PreAuditCrew():
     tasks_config = 'config/tasks.yaml'
 
     def __init__(self, serper_api_key:str, topic: str, deepseek_api_key: str, deepseek_url: str, deepseek_model: str ):
-        
-        litellm.drop_params = True
-        litellm.set_verbose = True
-        litellm.success_callback = ["langfuse"]
-            
-        
-        #setting needed LLMs
-        
-        LLAMA31_LLM = LLM(model="ollama/llama3.1")
-        MISTRAL_LLM = LLM(model="ollama/mistral")
-        LLAMA32_LLM = LLM(model="ollama/llama3.2")
-        LLAMA33_LLM = LLM(model="ollama/llama3.3")
-        MIXTRAL_LLM = LLM(model="ollama/mixtral")
-        
-        DEEPSEEK_LC_DF_LLM =  LLM(model="ollama/deepseek-r1")
-        DEEPSEEK_LCL_14B_LLM =  LLM(model="ollama/deepseek-r1:14b")
-        DEEPSEEK_LCL_32B_LLM =  LLM(model="ollama/deepseek-r1:32b")
-
-        DEEPSEEK_LLM = DeepseekLLM(api_key=deepseek_api_key, base_url=deepseek_url, model=deepseek_model)
-
-
-
-            
-        # Configure Deepseek specifically
-        #litellm.register_model(
-        #    model_name="deepseek-custom",
-        #    custom_llm_provider="deepseek",
-        #    api_base=deepseek_url,
-        #    api_key=deepseek_api_key,
-        #    max_retries=3,
-        #    timeout=60
-        #)
-        
-        #DEEPSEEK_LLM = DeepseekLLM(
-        #    api_key=deepseek_api_key,
-        #    base_url=deepseek_url,
-        #    model=deepseek_model
-        #)
-        
-
-
-        self.llm = DEEPSEEK_LLM
-        self.crew_llm = DEEPSEEK_LLM
-        
-        
-        
-        
+        self.llm = DeepseekLLM(api_key=deepseek_api_key, base_url=deepseek_url, model=deepseek_model)
+        self.crew_llm = DeepseekLLM(api_key=deepseek_api_key, base_url=deepseek_url, model=deepseek_model)
         self.topic = topic
         self.serper_api_key = serper_api_key
         self.current_date = datetime.now().strftime("%Y-%m-%d")
@@ -147,8 +86,7 @@ class PreAuditCrew():
     def create_tools(self) -> list:
         """Create tools with proper configuration"""
         return [
-            SerperDevTool(api_key=self.serper_api_key),
-            ScrapeWebsiteTool()
+            SerperDevTool(api_key=self.serper_api_key)
         ]
 
     def get_agent_config(self, agent_name: str) -> dict:
@@ -240,6 +178,8 @@ class PreAuditCrew():
             llm=self.llm,
         )
 
+    # [Previous task methods remain the same]
+  
 
     @task
     @handle_api_errors
