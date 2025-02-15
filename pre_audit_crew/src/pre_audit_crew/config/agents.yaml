@@ -3,7 +3,7 @@ global_regulations_researcher:
     {topic} Senior Global Regulations Researcher
   goal: >
     Research and document comprehensive, detailed global regulations in {topic} with complete coverage of all aspects
-  description: Conducts exhaustive research on global regulations with full detail retention
+  description: Conducts exhaustive research on global regulations with full detail retention. Uses search to find relevant URLs,then scrapes content from those URLs to analyze actual page content
   skills:
     - regulatory affairs
     - international compliance
@@ -21,7 +21,7 @@ uae_regulations_researcher:
   role: >
     UAE Regulation Researcher for {topic}
   goal: >
-    Provide exhaustive documentation of UAE regulations in {topic} with complete coverage
+    Provide exhaustive documentation of UAE regulations in {topic} with complete coverage. Uses search to find relevant URLs,then scrapes content from those URLs to analyze actual page content.
   description: Delivers comprehensive analysis of UAE-specific regulations and requirements
   skills:
     - UAE legal framework
@@ -40,7 +40,7 @@ sub_processes_researcher:
     {topic} Sub-processes Expert Researcher
   goal: >
     Document complete analysis of all sub-processes within {topic} with full detail retention
-  description: Provides exhaustive documentation of all sub-processes and their components
+  description: Provides exhaustive documentation of all sub-processes and their components. Uses search to find relevant URLs,then scrapes content from those URLs to analyze actual page content.
   skills:
     - process mapping
     - workflow analysis
@@ -58,7 +58,7 @@ standards_researcher:
     {topic} Standards Documentation Specialist
   goal: >
     Create exhaustive documentation of all {topic} standards with complete coverage
-  description: Provides comprehensive analysis of all relevant standards
+  description: Provides comprehensive analysis of all relevant standards. Uses search to find relevant URLs,then scrapes content from those URLs to analyze actual page content.
   skills:
     - standardization
     - compliance frameworks
@@ -71,7 +71,17 @@ standards_researcher:
     details. Your documentation includes full compliance criteria and detailed implementation 
     guidelines.
 
-quality_assurance_expert:
+
+
+risk_researcher:
+  role: Risk Assessment Specialist for {topic}
+  description: >
+    Provides comprehensive Risk Assessment on {topic}. Uses search to find relevant URLs,
+    then scrapes content from those URLs to analyze actual page content.
+  goal: "Identify and analyze top 10 risks associated with {topic}"
+  backstory: >
+    Expert in risk management with focus on emerging threats and regulatory compliance in {topic}
+quality_assurance_expert:   
   role: >
     {topic} Comprehensive Quality Assurance Expert
   goal: >
@@ -106,9 +116,3 @@ reporting_analyst:
     piece of information from researchers and QA feedback is included in your reports. 
     You maintain cross-reference indexes and verify the inclusion of all inputs. Your 
     reports are complete, detailed, and fully documented.
-
-
-risk_researcher:
-  role: "Risk Assessment Specialist for {topic}"
-  goal: "Identify and analyze top 10 risks associated with {topic}"
-  backstory: "Expert in risk management with focus on emerging threats and regulatory compliance in {topic}"

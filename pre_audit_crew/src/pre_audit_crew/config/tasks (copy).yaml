@@ -1,0 +1,174 @@
+sub_processes_research_task:
+  description: >
+    1- Search for up-to-date sub-processes of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for risk patterns
+    4. Validate information against multiple sources'''
+  expected_output: >
+    - Complete documentation of each sub-process
+    - Full stakeholder analysis
+    - Detailed process relationships
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - full_process_documentation
+      - stakeholder_matrix
+      - dependency_maps
+      - research_logs
+      - qa_responses
+  agent: sub_processes_researcher
+
+global_regulations_research_task:
+  description: >
+    Research and document ALL global regulations with complete detail:
+    1. Document every regulation identified
+    2. Include full compliance requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete regulation documentation
+    - Full compliance requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - regulation_details
+      - compliance_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
+  agent: global_regulations_researcher
+
+uae_regulations_research_task:
+  description: >
+    Document ALL UAE-specific regulations with complete detail:
+    1. Document every local regulation
+    2. Include full compliance requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete UAE regulation documentation
+    - Full compliance requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - regulation_details
+      - compliance_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
+  agent: uae_regulations_researcher
+
+standards_research_task:
+  description: >
+    Document ALL relevant standards with complete detail:
+    1. Document every applicable standard
+    2. Include full requirements
+    3. Document implementation guidelines
+    4. Maintain complete research logs
+    5. Address ALL QA feedback comprehensively
+  expected_output: >
+    - Complete standards documentation
+    - Full requirements
+    - Implementation guidelines
+    - Research logs
+    - QA feedback responses
+  output_format:
+    type: structured_documentation
+    includes:
+      - standards_details
+      - requirements_matrix
+      - implementation_guides
+      - research_logs
+      - qa_responses
+  agent: standards_researcher
+
+quality_assurance_task:
+  description: >
+    Review ALL research outputs with complete verification:
+    1. Verify completeness of every section
+    2. Document specific feedback for each finding
+    3. Maintain detailed feedback logs
+    4. Track all researcher responses
+    5. Verify requirement coverage
+    6. Provide final verification only when complete
+  dependencies:
+    - sub_processes_research_task
+    - global_regulations_research_task
+    - uae_regulations_research_task
+    - standards_research_task
+  expected_output: >
+    - Complete verification logs
+    - Detailed feedback
+    - Requirement coverage analysis
+    - Response tracking
+    - Final verification status
+  output_format:
+    type: verification_documentation
+    includes:
+      - verification_logs
+      - feedback_matrix
+      - requirement_coverage
+      - response_tracking
+      - final_status
+  agent: quality_assurance_expert
+
+
+
+
+risk_research_task:
+  description: "Identify and analyze top 10 current risks associated with {topic}. Include latest data and case studies."
+  expected_output: >
+    Numbered list of top 10 risks with:
+    - Risk description
+    - Likelihood assessment
+    - Potential impact
+    - Source URLs
+  agent: risk_researcher
+
+reporting_task:
+  description: >
+    Compile ALL research findings into professional pre-audit report with complete source references.
+    Include latest data up to current date {current_date}.
+  expected_output: >
+    Comprehensive report structured as:
+    
+    # {topic} Pre-Audit Assessment Report
+    
+    ## Executive Summary
+    - Audit scope and objectives
+    - Key findings overview
+    
+    ## Detailed Analysis
+    ### 1. Sub-processes Breakdown
+    [Full list from sub-processes researcher with sources]
+    
+    ### 2. Global Regulatory Landscape
+    [All global regulations with source URLs]
+    
+    ### 3. UAE-Specific Requirements
+    [Complete UAE regulations with official links]
+    
+    ### 4. Industry Standards
+    [All relevant standards with documentation references]
+    
+    ### 5. Risk Assessment
+    [Top 10 risks with likelihood/impact matrix and sources]
+    
+    ## Recommendations
+    - Prioritized action items
+    - Compliance roadmap
+    - Risk mitigation strategies
+    
+    ## References
+    - Complete list of all source URLs used in research
+  agent: reporting_analyst

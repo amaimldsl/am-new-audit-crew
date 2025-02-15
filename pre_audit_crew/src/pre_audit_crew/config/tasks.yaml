@@ -1,15 +1,12 @@
 sub_processes_research_task:
   description: >
-    Analyze and document ALL sub-processes involved in the specified topic with complete detail:
-    1. Document each sub-process completely:
-       - Full workflow documentation
-       - All inputs and outputs
-       - Every stakeholder and their role
-       - All dependencies and relationships
-    2. Maintain complete research logs
-    3. Submit comprehensive documentation for QA review
-    4. Address ALL QA feedback with specific responses
-    5. Verify completeness of documentation
+    Research and document ALL {topic} sub-processes that are essential components to establish {topic} with complete and latest detail up to {current_date}:
+    1- Search for up-to-date sub-processes of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for sub-processes and workflows
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6. Address ALL QA feedback comprehensively
   expected_output: >
     - Complete documentation of each sub-process
     - Full stakeholder analysis
@@ -28,12 +25,13 @@ sub_processes_research_task:
 
 global_regulations_research_task:
   description: >
-    Research and document ALL global regulations with complete detail:
-    1. Document every regulation identified
-    2. Include full compliance requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
+    Research and document ALL global regulations  of {topic} with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date global regulations  of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for global regulations.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6. Address ALL QA feedback comprehensively
   expected_output: >
     - Complete regulation documentation
     - Full compliance requirements
@@ -52,12 +50,13 @@ global_regulations_research_task:
 
 uae_regulations_research_task:
   description: >
-    Document ALL UAE-specific regulations with complete detail:
-    1. Document every local regulation
-    2. Include full compliance requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
+    Document ALL UAE-specific regulations with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date UAE regulations  of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for UAE regulations.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6. Address ALL QA feedback comprehensively
   expected_output: >
     - Complete UAE regulation documentation
     - Full compliance requirements
@@ -76,12 +75,13 @@ uae_regulations_research_task:
 
 standards_research_task:
   description: >
-    Document ALL relevant standards with complete detail:
-    1. Document every applicable standard
-    2. Include full requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
+    Document ALL relevant {topic} standards with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date standards of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for standards.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6. Address ALL QA feedback comprehensively
   expected_output: >
     - Complete standards documentation
     - Full requirements
@@ -97,6 +97,26 @@ standards_research_task:
       - research_logs
       - qa_responses
   agent: standards_researcher
+
+
+
+risk_research_task:
+  description: >
+    Document ALL relevant {topic} risks with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date risks of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for risks.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6. Address ALL QA feedback comprehensively
+  expected_output: >
+    Numbered list of top 10 risks with:
+    - Risk description
+    - Likelihood assessment
+    - Potential impact
+    - Source URLs
+  agent: risk_researcher
+  
 
 quality_assurance_task:
   description: >
@@ -128,53 +148,38 @@ quality_assurance_task:
       - final_status
   agent: quality_assurance_expert
 
-
-
-
-risk_research_task:
-  description: "Identify and analyze top 10 current risks associated with {topic}. Include latest data and case studies."
-  expected_output: >
-    Numbered list of top 10 risks with:
-    - Risk description
-    - Likelihood assessment
-    - Potential impact
-    - Source URLs
-  agent: risk_researcher
-
 reporting_task:
   description: >
-    Compile ALL research findings into professional pre-audit report with complete source references.
-    Include latest data up to current date {current_date}.
-  expected_output: >
-    Comprehensive report structured as:
-    
-    # {topic} Pre-Audit Assessment Report
-    
-    ## Executive Summary
-    - Audit scope and objectives
-    - Key findings overview
-    
-    ## Detailed Analysis
-    ### 1. Sub-processes Breakdown
-    [Full list from sub-processes researcher with sources]
-    
-    ### 2. Global Regulatory Landscape
-    [All global regulations with source URLs]
-    
-    ### 3. UAE-Specific Requirements
-    [Complete UAE regulations with official links]
-    
-    ### 4. Industry Standards
-    [All relevant standards with documentation references]
-    
-    ### 5. Risk Assessment
-    [Top 10 risks with likelihood/impact matrix and sources]
-    
-    ## Recommendations
-    - Prioritized action items
-    - Compliance roadmap
-    - Risk mitigation strategies
-    
-    ## References
-    - Complete list of all source URLs used in research
+    Compile ALL research findings from search_results folder into professional pre-audit report.
+    Include verbatim content from source files and ensure all transaction IDs/user mentions are preserved.
   agent: reporting_analyst
+  output_file: Pre_Audit_Report.md
+  expected_output: >
+    Comprehensive report structured with:
+    1. Executive Summary
+    2. Detailed Findings (all sections from search_results)
+    3. Complete Source References
+  context:
+    - sub_processes_research_task
+    - global_regulations_research_task
+    - uae_regulations_research_task
+    - standards_research_task
+    - risk_research_task
+    - quality_assurance_task
+  report_structure:
+    sections:
+      - title: Executive Summary
+        components:
+          - Audit Scope
+          - Key Statistics
+      - title: Process Documentation
+        content_source: search_results/sub_processes.md
+      - title: Global Regulations
+        content_source: search_results/global_regulations.md
+      - title: UAE Regulations
+        content_source: search_results/uae_regulations.md
+      - title: Risk Analysis
+        content_source: search_results/risk_analysis.md
+      - title: References
+        components:
+          - All source URLs from research logs
