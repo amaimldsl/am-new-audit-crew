@@ -62,7 +62,7 @@ class EnhancedLLM(LLM):
 
 def handle_api_errors(func):
     def wrapper(*args, **kwargs):
-        max_retries = 10
+        max_retries = 999
         base_delay = 15  # Increased base delay
         for attempt in range(max_retries):
             try:
