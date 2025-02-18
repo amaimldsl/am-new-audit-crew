@@ -219,12 +219,12 @@ class PreAuditCrew():
         )
 
     @agent
-    #@handle_api_errors
-    def quality_assurance_expert(self) -> Agent:
+    def prct_compilation_agent(self) -> Agent:
         return Agent(
-            config=self.get_agent_config('quality_assurance_expert'),
+            config=self.get_agent_config('prct_compilation_agent'),
             verbose=True,
             llm=self.llm,
+            tools=self.create_tools(),
         )
 
     @agent
@@ -298,14 +298,20 @@ class PreAuditCrew():
           )
     
     @task
-    #@handle_api_errors
-    def quality_assurance_task(self) -> Task:
+    def prct_compilation_task(self) -> Task:
         return Task(
-            config=self.get_task_config('quality_assurance_task'),
+            config=self.get_task_config('prct_compilation_task'),
             llm=self.llm,
-            agent=self.quality_assurance_expert(),
-            output_file='search_results/qa_verification.md',
-            #expected_output="QA verified output according to the reviewed tasks",
+            agent=self.prct_compilation_agent(),
+            tools=self.create_tools(),
+            context=[
+                self.sub_processes_research_task(),
+                self.global_regulations_research_task(),
+                self.uae_regulations_research_task(),
+                self.standards_research_task(),
+                self.risk_research_task()
+            ],
+            output_file='search_results/PRCT.md',
         )
 
     @task
@@ -315,19 +321,18 @@ class PreAuditCrew():
             llm=self.llm,
             agent=self.reporting_analyst(),
             tools=self.create_tools(),
-            context=[  # Add context from all tasks
+            context=[
                 self.sub_processes_research_task(),
                 self.global_regulations_research_task(),
                 self.uae_regulations_research_task(),
                 self.standards_research_task(),
                 self.risk_research_task(),
-                self.quality_assurance_task()
+                self.prct_compilation_task()
             ],
             output_file='Pre_Audit_Report.md',
             async_execution=False,
             description="Compile all findings from search_results folder into report. Preserve original content verbatim.",
-            callback=lambda output: logging.info(f"Report generated at: {output}"
-            )
+            callback=lambda output: logging.info(f"Report generated at: {output}")
         )
         
 

@@ -1,174 +1,226 @@
 sub_processes_research_task:
   description: >
+    Research and document ALL {topic} sub-processes that are essential components to establish {topic} with complete and latest detail up to {current_date}:
     1- Search for up-to-date sub-processes of {topic}
     2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for risk patterns
-    4. Validate information against multiple sources'''
+    3. Analyze scraped content for sub-processes and workflows
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6- Suggest PRCT (Process - Risk - Control - Tests) Mapping for each point:
+      A- Process : What is the process that is detailed in this point.
+      B- Risk : What the the possible risk that can be associated with that point.
+      C- Risk Rating: Give this risk a rating (High / Medium / Low)
+      D- Control : What is the required control to mitigate the above risk (A)
+      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
   expected_output: >
-    - Complete documentation of each sub-process
-    - Full stakeholder analysis
-    - Detailed process relationships
-    - Research logs
-    - QA feedback responses
+    - Executive Summary
+    - Complete detailed Results with reference URL for each point:
+        - Documentation of each sub-process
+        - Full stakeholder analysis
+        - Detailed process relationships
+        - Suggested PRTC Mapping for each point
   output_format:
     type: structured_documentation
     includes:
       - full_process_documentation
-      - stakeholder_matrix
+      - stakeholder_Mapping
       - dependency_maps
-      - research_logs
-      - qa_responses
+      - PRCT Mapping
   agent: sub_processes_researcher
 
 global_regulations_research_task:
   description: >
-    Research and document ALL global regulations with complete detail:
-    1. Document every regulation identified
-    2. Include full compliance requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
-  expected_output: >
-    - Complete regulation documentation
-    - Full compliance requirements
-    - Implementation guidelines
-    - Research logs
-    - QA feedback responses
+    Research and document ALL global regulations  of {topic} with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date global regulations  of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for global regulations.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6- Suggest PRCT (Process - Risk - Control - Tests) Mapping for each point:
+      A- Process : What is the process that is detailed in this point.
+      B- Risk : What the the possible risk that can be associated with that point.
+      C- Risk Rating: Give this risk a rating (High / Medium / Low)
+      D- Control : What is the required control to mitigate the above risk (A)
+      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
+    expected_output: >
+    - Executive Summary
+    - Complete detailed Results with reference URL for each point:
+        - Global regulation documentation
+        - Full compliance requirements
+        - Implementation guidelines
+        - Suggested PRTC Mapping for each point
   output_format:
     type: structured_documentation
     includes:
       - regulation_details
-      - compliance_matrix
+      - compliance_Mapping
       - implementation_guides
-      - research_logs
-      - qa_responses
+      - PRCT Mapping
   agent: global_regulations_researcher
 
 uae_regulations_research_task:
   description: >
-    Document ALL UAE-specific regulations with complete detail:
-    1. Document every local regulation
-    2. Include full compliance requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
+    Document ALL UAE-specific regulations with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date UAE regulations  of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for UAE regulations.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6- Suggest PRCT (Process - Risk - Control - Tests) Mapping for each point:
+      A- Process : What is the process that is detailed in this point.
+      B- Risk : What the the possible risk that can be associated with that point.
+      C- Risk Rating: Give this risk a rating (High / Medium / Low)
+      D- Control : What is the required control to mitigate the above risk (A)
+      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
   expected_output: >
-    - Complete UAE regulation documentation
-    - Full compliance requirements
-    - Implementation guidelines
-    - Research logs
-    - QA feedback responses
+    - Executive Summary
+    - Complete detailed Results with reference URL for each point:
+        - UAE regulation documentation
+        - Full compliance requirements
+        - Implementation guidelines
+        - Suggested PRTC Mapping for each point
   output_format:
     type: structured_documentation
     includes:
       - regulation_details
-      - compliance_matrix
+      - compliance_Mapping
       - implementation_guides
-      - research_logs
-      - qa_responses
+      - PRCT Mapping
   agent: uae_regulations_researcher
 
 standards_research_task:
   description: >
-    Document ALL relevant standards with complete detail:
-    1. Document every applicable standard
-    2. Include full requirements
-    3. Document implementation guidelines
-    4. Maintain complete research logs
-    5. Address ALL QA feedback comprehensively
+    Document ALL relevant {topic} standards with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date standards of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for standards.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6- Suggest PRCT (Process - Risk - Control - Tests) Mapping for each point:
+      A- Process : What is the process that is detailed in this point.
+      B- Risk : What the the possible risk that can be associated with that point.
+      C- Risk Rating: Give this risk a rating (High / Medium / Low)
+      D- Control : What is the required control to mitigate the above risk (A)
+      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
   expected_output: >
-    - Complete standards documentation
-    - Full requirements
-    - Implementation guidelines
-    - Research logs
-    - QA feedback responses
+    - Executive Summary
+    - Detailed Results with reference URL for each point:
+        - Standards documentation
+        - Full requirements
+        - Implementation guidelines
+        - Suggested PRTC Mapping for each point
   output_format:
     type: structured_documentation
     includes:
       - standards_details
-      - requirements_matrix
+      - requirements_Mapping
       - implementation_guides
-      - research_logs
-      - qa_responses
+      - PCT Mapping
   agent: standards_researcher
-
-quality_assurance_task:
-  description: >
-    Review ALL research outputs with complete verification:
-    1. Verify completeness of every section
-    2. Document specific feedback for each finding
-    3. Maintain detailed feedback logs
-    4. Track all researcher responses
-    5. Verify requirement coverage
-    6. Provide final verification only when complete
-  dependencies:
-    - sub_processes_research_task
-    - global_regulations_research_task
-    - uae_regulations_research_task
-    - standards_research_task
-  expected_output: >
-    - Complete verification logs
-    - Detailed feedback
-    - Requirement coverage analysis
-    - Response tracking
-    - Final verification status
-  output_format:
-    type: verification_documentation
-    includes:
-      - verification_logs
-      - feedback_matrix
-      - requirement_coverage
-      - response_tracking
-      - final_status
-  agent: quality_assurance_expert
-
 
 
 
 risk_research_task:
-  description: "Identify and analyze top 10 current risks associated with {topic}. Include latest data and case studies."
+  description: >
+    Document ALL relevant {topic} risks with complete and  latest detail up to {current_date}:
+    1- Search for up-to-date risks of {topic}
+    2. Scrape content from top 5 relevant URLs
+    3. Analyze scraped content for risks.
+    4. Validate information against multiple sources
+    5- Include the reference webpage title and URL.
+    6- Suggest PRCT (Process - Risk - Control - Tests) Mapping for each point:
+      A- Process : What is the process that is detailed in this point.
+      B- Risk : What the the possible risk that can be associated with that point.
+      C- Risk Rating: Give this risk a rating (High / Medium / Low)
+      D- Control : What is the required control to mitigate the above risk (A)
+      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
   expected_output: >
     Numbered list of top 10 risks with:
     - Risk description
     - Likelihood assessment
     - Potential impact
     - Source URLs
+    - Suggested PRTC Mapping for each point
+  output_format:
+    type: structured_documentation
+    includes:
+      - risk_details
+      - PRCT Mapping
   agent: risk_researcher
+  
+
+prct_compilation_task:
+  description: >
+    Compile and organize ALL PRCT matrices from research outputs:
+    1. Read all PRCT matrices from task outputs and result files
+    2. Categorize processes into logical groups
+    3. Within each process category:
+       - Prioritize risks from highest to lowest
+       - Aggregate related RCT entries while preserving all details
+    4. Create comprehensive compiled PRCT Mapping including:
+       - Process Category
+       - Process Name
+       - Process Risk
+       - Risk Rating
+       - Control Measures
+       - Test Steps
+  dependencies:
+    - sub_processes_research_task
+    - global_regulations_research_task
+    - uae_regulations_research_task
+    - standards_research_task
+    - risk_research_task
+  expected_output: >
+    Comprehensive PRCT Mapping compilation with:
+    - Categorized processes
+    - Prioritized risks
+    - Complete control measures
+    - Detailed test steps
+  output_format:
+    type: structured_documentation
+    includes:
+      - process_categories
+      - risk_prioritization
+      - control_measures
+      - test_procedures
+  output_file: search_results/PRCT.md
+  agent: prct_compilation_agent
 
 reporting_task:
   description: >
-    Compile ALL research findings into professional pre-audit report with complete source references.
-    Include latest data up to current date {current_date}.
-  expected_output: >
-    Comprehensive report structured as:
-    
-    # {topic} Pre-Audit Assessment Report
-    
-    ## Executive Summary
-    - Audit scope and objectives
-    - Key findings overview
-    
-    ## Detailed Analysis
-    ### 1. Sub-processes Breakdown
-    [Full list from sub-processes researcher with sources]
-    
-    ### 2. Global Regulatory Landscape
-    [All global regulations with source URLs]
-    
-    ### 3. UAE-Specific Requirements
-    [Complete UAE regulations with official links]
-    
-    ### 4. Industry Standards
-    [All relevant standards with documentation references]
-    
-    ### 5. Risk Assessment
-    [Top 10 risks with likelihood/impact matrix and sources]
-    
-    ## Recommendations
-    - Prioritized action items
-    - Compliance roadmap
-    - Risk mitigation strategies
-    
-    ## References
-    - Complete list of all source URLs used in research
+    Compile ALL research findings from search_results folder into professional pre-audit report.
+    Include verbatim content from source files and ensure all transaction IDs/user mentions are preserved.
   agent: reporting_analyst
+  output_file: Pre_Audit_Report.md
+  expected_output: >
+    Comprehensive report structured with:
+    1. Executive Summary
+    2. Detailed Findings (all sections from search_results)
+    3. Compiled PRCT Mapping
+    4. Complete Source References
+  context:
+    - sub_processes_research_task
+    - global_regulations_research_task
+    - uae_regulations_research_task
+    - standards_research_task
+    - risk_research_task
+    - prct_compilation_task
+  report_structure:
+    sections:
+      - title: Executive Summary
+        components:
+          - Audit Scope
+          - Key Statistics
+      - title: Process Documentation
+        content_source: search_results/sub_processes.md
+      - title: Global Regulations
+        content_source: search_results/global_regulations.md
+      - title: UAE Regulations
+        content_source: search_results/uae_regulations.md
+      - title: Risk Analysis
+        content_source: search_results/risk_analysis.md
+      - title: Compiled PRCT Mapping
+        content_source: search_results/PRCT.md
+      - title: References
+        components:
+          - All source URLs from research logs
