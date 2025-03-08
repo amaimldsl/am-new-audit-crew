@@ -1,110 +1,69 @@
-### Comprehensive List of Data Governance Sub-Processes (2025)
+### Basel Pillar II for Banks Sub-Processes Analysis (2025)
 
-1. **Metadata Management**  
-   - **Description**: Focuses on the creation, maintenance, and governance of metadata to ensure data is discoverable, understandable, and usable.  
-   - **Key Activities**: Metadata cataloging, lineage tracking, classification, and enrichment.  
-   - **Trends**: Increasing importance of metadata maturity for scalability and integration with architectures like data mesh and data fabric.  
+#### 1. **Pillar 2 Supervisory Review Process (SRP)**
+   - **Process**: The Pillar 2 Supervisory Review Process (SRP) is an integral part of the Basel Framework. It ensures that banks maintain adequate capital to support all risks in their business and develop better risk management techniques. This process involves the Internal Capital Adequacy Assessment Process (ICAAP) and the Supervisory Review and Evaluation Process (SREP).
+   - **Risk**: Inadequate capital buffers to cover risks, leading to potential financial instability.
+   - **Risk Rating**: High
+   - **Control**: Regular stress testing and scenario analysis to assess capital adequacy under adverse conditions.
+   - **Test**: Conduct periodic stress tests and compare results against regulatory thresholds to ensure compliance.
 
-2. **Data Quality Management**  
-   - **Description**: Ensures data accuracy, completeness, consistency, and reliability across the organization.  
-   - **Key Activities**: Data validation, cleansing, reconciliation, and monitoring.  
-   - **Trends**: Convergence of data governance and data quality practices to create seamless user experiences and build trust in data.  
+   **Reference**: [Overview of Pillar 2 supervisory review practices and approaches](https://www.bis.org/bcbs/publ/d465.pdf)
 
-3. **Data Privacy and Compliance**  
-   - **Description**: Ensures adherence to data protection regulations (e.g., GDPR, CCPA) and internal privacy policies.  
-   - **Key Activities**: Data minimization, consent management, access control, and audit trails.  
-   - **Trends**: Growing focus on real-time compliance monitoring and geo-fencing for data sovereignty.  
+#### 2. **Internal Capital Adequacy Assessment Process (ICAAP)**
+   - **Process**: ICAAP requires banks to assess their capital needs based on their risk profile and ensure they have sufficient capital to cover all risks, including credit, market, operational, and liquidity risks.
+   - **Risk**: Underestimation of risk exposure, leading to insufficient capital reserves.
+   - **Risk Rating**: Medium
+   - **Control**: Implement robust risk assessment models and regularly update risk parameters.
+   - **Test**: Validate risk models through back-testing and sensitivity analysis.
 
-4. **AI and Machine Learning Governance**  
-   - **Description**: Governs the ethical use of AI and ML models, ensuring transparency, fairness, and accountability.  
-   - **Key Activities**: Model validation, bias detection, explainability, and ethical AI frameworks.  
-   - **Trends**: Integration of AI governance into data governance teams to address ethical risks and biases.  
+   **Reference**: [Basel Framework - Bank for International Settlements](https://www.bis.org/baselframework/BaselFramework.pdf)
 
-5. **Data Access and Security**  
-   - **Description**: Manages who has access to data and ensures data is protected from unauthorized access or breaches.  
-   - **Key Activities**: Role-based access control, encryption, and monitoring of data access logs.  
-   - **Trends**: Increased use of AI-driven solutions for dynamic access control and real-time security monitoring.  
+#### 3. **Supervisory Review and Evaluation Process (SREP)**
+   - **Process**: SREP is conducted by regulators to evaluate banks' risk management practices and capital adequacy. It includes assessing the quality of governance, risk management, and internal controls.
+   - **Risk**: Weak governance and risk management practices, leading to regulatory non-compliance.
+   - **Risk Rating**: High
+   - **Control**: Establish a strong governance framework and enhance risk management capabilities.
+   - **Test**: Conduct internal audits and regulatory compliance checks to ensure adherence to SREP requirements.
 
-6. **Data Cataloging and Discovery**  
-   - **Description**: Enables users to find and understand data assets through a centralized catalog.  
-   - **Key Activities**: Data asset registration, tagging, and search functionality.  
-   - **Trends**: Automation of data cataloging using AI and integration with self-service analytics platforms.  
+   **Reference**: [Pillar 2 requirement - ECB Banking Supervision](https://www.bankingsupervision.europa.eu/activities/srep/pillar-2-requirement/html/index.en.html)
 
-7. **Data Stewardship**  
-   - **Description**: Assigns accountability for data assets to ensure proper management and usage.  
-   - **Key Activities**: Defining data ownership, stewardship roles, and responsibilities.  
-   - **Trends**: Shift toward federated stewardship models to support decentralized data architectures.  
+#### 4. **Pillar 2 Capital Requirement**
+   - **Process**: Pillar 2 capital requirement is a bank-specific capital requirement that supplements the minimum capital requirement (Pillar 1). It is determined based on the bank's risk profile and the outcomes of the ICAAP and SREP.
+   - **Risk**: Insufficient capital to cover bank-specific risks, leading to potential solvency issues.
+   - **Risk Rating**: High
+   - **Control**: Maintain a capital buffer above the regulatory minimum and conduct regular capital adequacy assessments.
+   - **Test**: Perform capital adequacy ratio (CAR) calculations and compare against regulatory benchmarks.
 
-8. **Data Lineage and Traceability**  
-   - **Description**: Tracks the origin, movement, and transformation of data across systems.  
-   - **Key Activities**: Mapping data flows, documenting transformations, and ensuring traceability for compliance.  
-   - **Trends**: Increased automation of lineage tracking using AI and ML.  
+   **Reference**: [Basel Capital Adequacy Reporting (BCAR) - OSFI](https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/financial-reporting-instructions/basel-capital-adequacy-reporting-bcar)
 
-9. **Data Literacy and Training**  
-   - **Description**: Promotes understanding and effective use of data across the organization.  
-   - **Key Activities**: Training programs, business glossaries, and data literacy initiatives.  
-   - **Trends**: Growing emphasis on fostering a data-driven culture and democratizing data access.  
+#### 5. **Pillar 2 Disclosure Requirements**
+   - **Process**: Pillar 2 requires banks to disclose information on their risk management practices, capital adequacy, and the outcomes of the ICAAP and SREP. This promotes transparency and market discipline.
+   - **Risk**: Inaccurate or incomplete disclosures, leading to reputational damage and loss of investor confidence.
+   - **Risk Rating**: Medium
+   - **Control**: Implement robust disclosure policies and ensure accurate reporting of risk and capital information.
+   - **Test**: Conduct periodic reviews of disclosure documents to ensure accuracy and completeness.
 
-10. **Data Retention and Archiving**  
-    - **Description**: Defines policies for how long data should be retained and when it should be archived or deleted.  
-    - **Key Activities**: Retention policy development, archiving processes, and data disposal.  
-    - **Trends**: Focus on balancing compliance with storage costs and data utility.  
+   **Reference**: [Pillar 3 Disclosure Guideline for Domestic Systemically Important Banks (D-SIBs)](https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/pillar-3-disclosure-guideline-domestic-systemically-important-banks-sibs-2025)
 
-11. **Data Ethics and Responsible Use**  
-    - **Description**: Ensures data is used ethically and responsibly, avoiding harm or bias.  
-    - **Key Activities**: Ethical guidelines, impact assessments, and monitoring of data usage.  
-    - **Trends**: Integration of ethical considerations into AI and ML governance frameworks.  
+### Stakeholder Mapping
+- **Regulators**: Responsible for conducting SREP and setting Pillar 2 capital requirements.
+- **Banks**: Responsible for implementing ICAAP, maintaining adequate capital, and complying with disclosure requirements.
+- **Investors**: Rely on Pillar 2 disclosures to assess the financial health and risk profile of banks.
+- **Auditors**: Conduct independent reviews of banks' risk management practices and capital adequacy.
 
-12. **Real-Time Data Governance**  
-    - **Description**: Enables governance policies to be enforced in real-time as data is generated and consumed.  
-    - **Key Activities**: Real-time monitoring, validation, and policy enforcement.  
-    - **Trends**: Adoption of real-time governance for streaming data and IoT applications.  
+### Process Relationships
+- The **ICAAP** process feeds into the **SREP**, which is conducted by regulators to assess the adequacy of banks' capital and risk management practices.
+- The outcomes of the **SREP** determine the **Pillar 2 capital requirement**, which supplements the minimum capital requirement under Pillar 1.
+- **Pillar 2 disclosures** provide transparency to investors and other stakeholders, promoting market discipline.
 
-13. **Data Governance Framework Development**  
-    - **Description**: Establishes the structure, policies, and processes for governing data.  
-    - **Key Activities**: Framework design, policy creation, and stakeholder alignment.  
-    - **Trends**: Shift toward iterative, business-first approaches to framework development.  
+### PRCT Matrix for Each Point
+| **Process**                          | **Risk**                                                                 | **Risk Rating** | **Control**                                                                 | **Test**                                                                 |
+|--------------------------------------|--------------------------------------------------------------------------|-----------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| Pillar 2 Supervisory Review Process  | Inadequate capital buffers to cover risks, leading to financial instability | High            | Regular stress testing and scenario analysis                                | Conduct periodic stress tests and compare results against regulatory thresholds |
+| Internal Capital Adequacy Assessment | Underestimation of risk exposure, leading to insufficient capital reserves | Medium          | Implement robust risk assessment models and regularly update risk parameters | Validate risk models through back-testing and sensitivity analysis       |
+| Supervisory Review and Evaluation    | Weak governance and risk management practices, leading to non-compliance  | High            | Establish a strong governance framework and enhance risk management capabilities | Conduct internal audits and regulatory compliance checks                 |
+| Pillar 2 Capital Requirement         | Insufficient capital to cover bank-specific risks, leading to solvency issues | High            | Maintain a capital buffer above the regulatory minimum                      | Perform capital adequacy ratio (CAR) calculations and compare against benchmarks |
+| Pillar 2 Disclosure Requirements     | Inaccurate or incomplete disclosures, leading to reputational damage      | Medium          | Implement robust disclosure policies and ensure accurate reporting           | Conduct periodic reviews of disclosure documents to ensure accuracy      |
 
-14. **Data Governance Tool Implementation**  
-    - **Description**: Deploys tools to support governance processes, such as data catalogs, quality tools, and lineage trackers.  
-    - **Key Activities**: Tool selection, implementation, and integration with existing systems.  
-    - **Trends**: Increasing use of integrated platforms like Collibra, Atlan, and Secoda.  
-
-15. **Stakeholder Engagement and Communication**  
-    - **Description**: Ensures alignment and collaboration across stakeholders to drive governance adoption.  
-    - **Key Activities**: Stakeholder mapping, communication plans, and feedback loops.  
-    - **Trends**: Emphasis on storytelling and demonstrating the business value of governance.  
-
-16. **Data Governance Maturity Assessment**  
-    - **Description**: Evaluates the maturity of governance practices and identifies areas for improvement.  
-    - **Key Activities**: Self-assessment, benchmarking, and roadmap development.  
-    - **Trends**: Use of maturity models and tools like NCSC’s data governance self-assessment tool.  
-
-17. **Data Governance for AI and Analytics**  
-    - **Description**: Ensures governance practices support AI and analytics initiatives.  
-    - **Key Activities**: Data preparation, model governance, and analytics governance.  
-    - **Trends**: Focus on ensuring high-quality inputs for AI models and ethical AI outcomes.  
-
-18. **Data Governance in Multi-Cloud Environments**  
-    - **Description**: Manages governance across multiple cloud platforms to ensure consistency and compliance.  
-    - **Key Activities**: Policy enforcement, data localization, and cross-cloud governance.  
-    - **Trends**: Adoption of cloud-native governance tools and geo-fencing solutions.  
-
-19. **Data Governance for Corporate Reporting**  
-    - **Description**: Ensures data used in corporate reporting is accurate, consistent, and compliant.  
-    - **Key Activities**: Data validation, reconciliation, and reporting governance.  
-    - **Trends**: Integration of governance with ESG (Environmental, Social, Governance) reporting.  
-
-20. **Data Governance for Data Democratization**  
-    - **Description**: Supports the democratization of data by enabling broader access while maintaining control.  
-    - **Key Activities**: Self-service analytics, data access policies, and user training.  
-    - **Trends**: Balancing democratization with strong governance to prevent misuse.  
-
-### References:
-1. DATAVERSITY - Data Governance Trends in 2025: https://www.dataversity.net/data-governance-trends-in-2025/  
-2. Digital Watch Observatory - Data Governance: https://dig.watch/topics/data-governance  
-3. Reddit - Data Governance Tools Discussion: https://www.reddit.com/r/dataengineering/comments/1hybfly/what_data_governance_tools_are_you_using_in_2025/  
-4. LinkedIn - Data Governance in 2025: https://www.linkedin.com/pulse/data-governance-2025-whats-next-secodahq-a6plc  
-5. Precisely - Modern Data Governance Trends: https://www.precisely.com/blog/datagovernance/modern-data-governance-trends-for-2025  
-6. NCSC - Webinar on Data Governance: https://www.ncsc.org/conferences-and-events/events-calendar/2025/webinars/january/webinar-a-roadmap-to-data-governance-part-1  
+This analysis provides a comprehensive overview of the sub-processes within Basel Pillar II for Banks, including detailed workflows, stakeholder mapping, process relationships, and a PRCT Matrix for each point. The references provided are based on the search results and snippets, ensuring the information is up-to-date and relevant as of 2025.
 ```

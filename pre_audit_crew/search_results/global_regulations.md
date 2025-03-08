@@ -1,146 +1,56 @@
-### Comprehensive Documentation of Global Data Governance Regulations (2025)
+### Basel Pillar II for Banks Global Regulations (2025)
 
-#### 1. **General Data Protection Regulation (GDPR)**
-   - **Jurisdiction**: European Union (EU)
-   - **Description**: GDPR is the gold standard for data protection laws, applicable to any organization processing EU residents' personal data, regardless of location. It emphasizes data minimization, privacy by design, and explicit consent for data collection.
-   - **Key Requirements**:
-     - Conduct Data Protection Impact Assessments (DPIAs).
-     - Appoint Data Protection Officers (DPOs).
-     - Ensure strict rules on data transfers outside the EU.
-   - **Impact on Data Governance**:
-     - Mandates comprehensive data management strategies.
-     - Requires detailed records of data processing activities.
-     - Enforces transparency in data handling and storage practices.
-   - **Reference**: [GDPR Overview](https://fpf.org/blog/what-to-expect-in-global-privacy-in-2025/)
+#### 1. **Pillar 2 Supervisory Review Process (SRP)**
+   - **Process**: The Pillar 2 Supervisory Review Process (SRP) ensures that banks maintain adequate capital to support all risks in their business and develop better risk management techniques. This process involves the Internal Capital Adequacy Assessment Process (ICAAP) and the Supervisory Review and Evaluation Process (SREP).
+   - **Risk**: Inadequate capital buffers to cover risks, leading to potential financial instability.
+   - **Risk Rating**: High
+   - **Control**: Regular stress testing and scenario analysis to assess capital adequacy under adverse conditions.
+   - **Test**: Conduct periodic stress tests and compare results against regulatory thresholds to ensure compliance.
 
-#### 2. **California Consumer Privacy Act (CCPA)**
-   - **Jurisdiction**: California, USA
-   - **Description**: CCPA grants California residents the right to know what personal data is collected and how it is used. It applies to for-profit businesses meeting specific thresholds.
-   - **Key Requirements**:
-     - Maintain detailed records of personal data and its use.
-     - Implement processes for responding to consumer requests.
-     - Allow consumers to opt-out of data sales.
-   - **Impact on Data Governance**:
-     - Requires transparent data management systems.
-     - Emphasizes data collection and use transparency.
-     - Necessitates mechanisms to track and honor consumer preferences.
-   - **Reference**: [CCPA Overview](https://semarchy.com/blog/data-governance-regulations/)
+   **Reference**: [Overview of Pillar 2 supervisory review practices and approaches](https://www.bis.org/bcbs/publ/d465.pdf)
 
-#### 3. **UK Data Protection Act 2018**
-   - **Jurisdiction**: United Kingdom
-   - **Description**: This act implements GDPR into UK law and extends data protection regulations, continuing to apply post-Brexit with some modifications.
-   - **Key Requirements**:
-     - Implement appropriate technical and organizational measures for data protection.
-     - Establish clear policies for data handling and processing.
-     - Include specific provisions for law enforcement and intelligence services.
-   - **Impact on Data Governance**:
-     - Reinforces the need for robust data governance frameworks.
-     - Emphasizes strong data security practices.
-     - Adds complexity to data governance in specific sectors.
-   - **Reference**: [UK Data Protection Act 2018](https://semarchy.com/blog/data-governance-regulations/)
+#### 2. **Internal Capital Adequacy Assessment Process (ICAAP)**
+   - **Process**: ICAAP requires banks to assess their capital needs based on their risk profile and ensure they have sufficient capital to cover all risks, including credit, market, operational, and liquidity risks.
+   - **Risk**: Underestimation of risk exposure, leading to insufficient capital reserves.
+   - **Risk Rating**: Medium
+   - **Control**: Implement robust risk assessment models and regularly update risk parameters.
+   - **Test**: Validate risk models through back-testing and sensitivity analysis.
 
-#### 4. **Health Insurance Portability and Accountability Act (HIPAA)**
-   - **Jurisdiction**: United States
-   - **Description**: HIPAA protects individuals' medical records and personal health information, applying to healthcare providers, health plans, and healthcare clearinghouses.
-   - **Key Requirements**:
-     - Establish strict rules for data access, use, and disclosure.
-     - Conduct regular risk assessments.
-     - Provide extensive employee training on data protection.
-   - **Impact on Data Governance**:
-     - Necessitates robust Master Data Management (MDM) practices.
-     - Requires comprehensive policies for protecting patient data.
-     - Emphasizes continuous evaluation and improvement of data protection measures.
-   - **Reference**: [HIPAA Overview](https://semarchy.com/blog/data-governance-regulations/)
+   **Reference**: [Basel Framework - Bank for International Settlements](https://www.bis.org/baselframework/BaselFramework.pdf)
 
-#### 5. **EU Data Governance Act**
-   - **Jurisdiction**: European Union
-   - **Description**: The EU Data Governance Act aims to increase trust in data sharing and lower the costs of data acquisition. It introduces the concept of "data altruism" for sharing data for public good.
-   - **Key Requirements**:
-     - Promote secure data sharing across sectors and borders.
-     - Develop new governance structures for data intermediaries.
-     - Encourage data altruism for public interest purposes.
-   - **Impact on Data Governance**:
-     - Reshapes data governance by promoting secure data sharing.
-     - Encourages the development of data-sharing ecosystems.
-     - Introduces additional complexity to data management practices.
-   - **Reference**: [EU Data Governance Act](https://semarchy.com/blog/data-governance-regulations/)
+#### 3. **Supervisory Review and Evaluation Process (SREP)**
+   - **Process**: SREP is conducted by regulators to evaluate banks' risk management practices and capital adequacy. It includes assessing the quality of governance, risk management, and internal controls.
+   - **Risk**: Weak governance and risk management practices, leading to regulatory non-compliance.
+   - **Risk Rating**: High
+   - **Control**: Establish a strong governance framework and enhance risk management capabilities.
+   - **Test**: Conduct internal audits and regulatory compliance checks to ensure adherence to SREP requirements.
 
-#### 6. **Sarbanes-Oxley Act (SOX)**
-   - **Jurisdiction**: United States
-   - **Description**: SOX applies to all publicly traded companies in the US, requiring management and auditors to establish internal controls and reporting methods.
-   - **Key Requirements**:
-     - Implement strict controls over financial data and reporting processes.
-     - Establish comprehensive audit trails and data lineage.
-     - Conduct regular assessments of internal control effectiveness.
-   - **Impact on Data Governance**:
-     - Mandates robust systems for data validation and verification.
-     - Emphasizes data accuracy and integrity.
-     - Requires ongoing evaluation and improvement of data governance practices.
-   - **Reference**: [SOX Overview](https://semarchy.com/blog/data-governance-regulations/)
+   **Reference**: [Pillar 2 requirement - ECB Banking Supervision](https://www.bankingsupervision.europa.eu/activities/srep/pillar-2-requirement/html/index.en.html)
 
-#### 7. **Network and Information Systems (NIS) Regulations**
-   - **Jurisdiction**: United Kingdom
-   - **Description**: These regulations implement the EU NIS Directive, applying to operators of essential services and relevant digital service providers.
-   - **Key Requirements**:
-     - Implement appropriate security measures.
-     - Mandate incident reporting to relevant authorities.
-     - Conduct regular security assessments and updates.
-   - **Impact on Data Governance**:
-     - Emphasizes cybersecurity in critical infrastructure sectors.
-     - Requires robust incident management processes.
-     - Adds a new dimension to data governance regarding external communication and regulatory interaction.
-   - **Reference**: [NIS Regulations](https://semarchy.com/blog/data-governance-regulations/)
+#### 4. **Pillar 2 Capital Requirement**
+   - **Process**: Pillar 2 capital requirement is a bank-specific capital requirement that supplements the minimum capital requirement (Pillar 1). It is determined based on the bank's risk profile and the outcomes of the ICAAP and SREP.
+   - **Risk**: Insufficient capital to cover bank-specific risks, leading to potential solvency issues.
+   - **Risk Rating**: High
+   - **Control**: Maintain a capital buffer above the regulatory minimum and conduct regular capital adequacy assessments.
+   - **Test**: Perform capital adequacy ratio (CAR) calculations and compare against regulatory benchmarks.
 
-#### 8. **EU Digital Markets Act**
-   - **Jurisdiction**: European Union
-   - **Description**: This act targets large online platforms acting as "gatekeepers" in digital markets, prohibiting certain practices and requiring proactive implementation of specific behaviors.
-   - **Key Requirements**:
-     - Regulate how large platforms manage and share data.
-     - Promote fair competition and data portability.
-     - Limit the combination of personal data across services.
-   - **Impact on Data Governance**:
-     - Requires reassessment of data architectures and sharing practices.
-     - Necessitates more granular data management.
-     - Compels large platforms to rethink their data governance strategies.
-   - **Reference**: [EU Digital Markets Act](https://semarchy.com/blog/data-governance-regulations/)
+   **Reference**: [Basel Capital Adequacy Reporting (BCAR) - OSFI](https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/financial-reporting-instructions/basel-capital-adequacy-reporting-bcar)
 
-#### 9. **Gramm-Leach-Bliley Act (GLBA)**
-   - **Jurisdiction**: United States
-   - **Description**: GLBA applies to US financial institutions, requiring clear disclosure of privacy policies to customers and mandating safeguards to protect customers' personal information.
-   - **Key Requirements**:
-     - Implement comprehensive information security programs.
-     - Conduct regular risk assessments of customer information.
-     - Provide clear privacy policies and disclosures.
-   - **Impact on Data Governance**:
-     - Emphasizes transparent communication about data practices.
-     - Requires financial institutions to explain information-sharing practices to customers.
-     - Adds complexity to data governance in terms of customer communication and consent management.
-   - **Reference**: [GLBA Overview](https://semarchy.com/blog/data-governance-regulations/)
+#### 5. **Pillar 2 Disclosure Requirements**
+   - **Process**: Pillar 2 requires banks to disclose information on their risk management practices, capital adequacy, and the outcomes of the ICAAP and SREP. This promotes transparency and market discipline.
+   - **Risk**: Inaccurate or incomplete disclosures, leading to reputational damage and loss of investor confidence.
+   - **Risk Rating**: Medium
+   - **Control**: Implement robust disclosure policies and ensure accurate reporting of risk and capital information.
+   - **Test**: Conduct periodic reviews of disclosure documents to ensure accuracy and completeness.
 
-#### 10. **UK Data Protection and Digital Information Bill (Proposed)**
-   - **Jurisdiction**: United Kingdom
-   - **Description**: This bill aims to update the UK data protection framework post-Brexit, proposing changes such as simplifying requirements for valid consent and expanding legitimate interests for processing personal data.
-   - **Key Requirements**:
-     - Update existing data governance policies.
-     - Reduce compliance burdens while maintaining high data protection standards.
-     - Introduce new concepts and requirements for data governance.
-   - **Impact on Data Governance**:
-     - May require updates to existing data governance frameworks.
-     - Allows for more flexible data governance practices.
-     - Introduces new requirements that organizations need to incorporate into their data governance strategies.
-   - **Reference**: [UK Data Protection and Digital Information Bill](https://semarchy.com/blog/data-governance-regulations/)
+   **Reference**: [Pillar 3 Disclosure Guideline for Domestic Systemically Important Banks (D-SIBs)](https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/pillar-3-disclosure-guideline-domestic-systemically-important-banks-sibs-2025)
 
-### Research Logs and QA Feedback Responses
-- **Research Logs**: 
-  - Searched for up-to-date global regulations of Data Governance using the query "global data governance regulations 2025."
-  - Scraped content from the top 5 relevant URLs to gather comprehensive information.
-  - Analyzed the scraped content to identify key regulations and their impact on data governance.
-  - Validated the information against multiple sources to ensure accuracy and completeness.
-
-- **QA Feedback Responses**:
-  - Addressed all QA feedback comprehensively by ensuring that the documentation includes complete regulation details, compliance requirements, implementation guidelines, and references to the original sources.
-  - Included the reference webpage title and URL for each regulation to ensure traceability and credibility.
-
-### Conclusion
-This comprehensive documentation provides a detailed overview of global data governance regulations as of 2025, including their key requirements, impacts on data governance, and references to the original sources. The research logs and QA feedback responses ensure that the information is accurate, complete, and validated against multiple sources.
+### PRCT Matrix for Each Point
+| **Process**                          | **Risk**                                                                 | **Risk Rating** | **Control**                                                                 | **Test**                                                                 |
+|--------------------------------------|--------------------------------------------------------------------------|-----------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| Pillar 2 Supervisory Review Process  | Inadequate capital buffers to cover risks, leading to financial instability | High            | Regular stress testing and scenario analysis                                | Conduct periodic stress tests and compare results against regulatory thresholds |
+| Internal Capital Adequacy Assessment | Underestimation of risk exposure, leading to insufficient capital reserves | Medium          | Implement robust risk assessment models and regularly update risk parameters | Validate risk models through back-testing and sensitivity analysis       |
+| Supervisory Review and Evaluation    | Weak governance and risk management practices, leading to non-compliance  | High            | Establish a strong governance framework and enhance risk management capabilities | Conduct internal audits and regulatory compliance checks                 |
+| Pillar 2 Capital Requirement         | Insufficient capital to cover bank-specific risks, leading to solvency issues | High            | Maintain a capital buffer above the regulatory minimum                      | Perform capital adequacy ratio (CAR) calculations and compare against benchmarks |
+| Pillar 2 Disclosure Requirements     | Inaccurate or incomplete disclosures, leading to reputational damage      | Medium          | Implement robust disclosure policies and ensure accurate reporting           | Conduct periodic reviews of disclosure documents to ensure accuracy      |
 ```

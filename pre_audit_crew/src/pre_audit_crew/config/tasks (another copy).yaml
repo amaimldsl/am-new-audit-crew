@@ -176,19 +176,14 @@ reporting_task:
           - Key Statistics
       - title: Process Documentation
         content_source: search_results/sub_processes.md
-        include_format: full   
       - title: Global Regulations
         content_source: search_results/global_regulations.md
-        include_format: full
       - title: UAE Regulations
         content_source: search_results/uae_regulations.md
-        include_format: full
       - title: Risk Analysis
         content_source: search_results/risk_analysis.md
-        include_format: full
       - title: Compiled PRCT Matrix
         content_source: search_results/PRCT.md
-        include_format: full  
       - title: References
         components:
           - All source URLs from research logs
