@@ -1,166 +1,190 @@
 sub_processes_research_task:
   description: >
-    Research and document ALL {topic} sub-processes that are essential components to establish {topic} with complete and latest detail up to {current_date}:
-    1- Search for up-to-date sub-processes of {topic}
-    2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for sub-processes and workflows
-    4. Validate information against multiple sources
-    5- Include the reference webpage title and URL.
-    6- Suggest PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process : What is the process that is detailed in this point.
-      B- Risk : What the the possible risk that can be associated with that point.
-      C- Risk Rating: Give this risk a rating (High / Medium / Low)
-      D- Control : What is the required control to mitigate the above risk (A)
-      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
-  expected_output: "Complete detailed Results with reference URL for each point including documentation of sub-processes, stakeholder analysis, process relationships, and suggested PRTC Matrix for each point"
+    Research and document TOP 10 most critical {topic} sub-processes that are essential for audit preparation, with latest detail up to {current_date}:
+    1- Search for up-to-date sub-processes of {topic} focusing on those with highest audit risk
+    2- Search query must target reliable sources (government, professional bodies, educational institutions)
+    3- Search query must include "high risk" OR "critical" OR "important" keywords
+    4- When scraping websites, focus on extracting risk-relevant content
+    5- For each sub-process found, include:
+       - Source website title and URL
+       - Why this sub-process is critical for audit preparation
+       - Common challenges or deficiencies found in this area
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Detailed description of the sub-process and its importance
+      B- Risk: Specific risks that could arise if this sub-process is inadequate
+      C- Risk Rating: Rate each risk (High/Medium/Low) with justification
+      D- Control: Required controls to mitigate each risk, with focus on best practices
+      E- Test: Detailed test steps that auditors should follow to verify control effectiveness
+    7- Rank findings by risk level (High to Low) and focus on the top 10 most critical items
+  expected_output: "Top 10 critical sub-processes with comprehensive PRCT Matrix for each, ranked by risk level"
   output_format:
     type: structured_documentation
     includes:
-      - full_process_documentation
-      - stakeholder_matrix
-      - dependency_maps
-      - PRCT Matrix
+      - ranked_critical_processes
+      - risk_justifications
+      - best_practice_controls
+      - detailed_test_procedures
   output_file: search_results/sub_processes.md
   agent: sub_processes_researcher
 
-  
 global_regulations_research_task:
   description: >
-    Research and document ALL global regulations  of {topic} with complete and  latest detail up to {current_date}:
-    1- Search for up-to-date global regulations  of {topic}
-    2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for global regulations.
-    4. Validate information against multiple sources
-    5- Include the reference webpage title and URL.
-    6- Suggest PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process : What is the process that is detailed in this point.
-      B- Risk : What the the possible risk that can be associated with that point.
-      C- Risk Rating: Give this risk a rating (High / Medium / Low)
-      D- Control : What is the required control to mitigate the above risk (A)
-      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
-  expected_output: "Complete detailed Results with reference URL for each point including global regulation documentation, full compliance requirements, implementation guidelines, and suggested PRTC Matrix for each point"
+    Research and document TOP 10 most critical global regulations of {topic} with latest detail up to {current_date}:
+    1- Search for up-to-date global regulations of {topic} focusing on high-impact requirements
+    2- Search query must target authoritative sources (BIS, government sites, regulatory bodies)
+    3- Search query must include "compliance requirements" OR "mandatory" OR "penalties" keywords
+    4- When scraping websites, prioritize content about compliance deadlines and severe penalties
+    5- For each regulation found, include:
+       - Source website title and URL
+       - Jurisdictional scope (which countries/regions are affected)
+       - Compliance deadlines and potential penalties for non-compliance
+       - Emergence of new regulatory trends in this area
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Specific regulatory requirement and compliance process
+      B- Risk: Consequences of non-compliance including financial, reputational, and operational impacts
+      C- Risk Rating: Rate each risk (High/Medium/Low) with justification
+      D- Control: Required controls to ensure compliance, with focus on audit evidence requirements
+      E- Test: Detailed test steps auditors should follow to verify compliance
+    7- Rank regulations by risk level (High to Low) and focus on the top 10 most critical items
+  expected_output: "Top 10 critical global regulations with comprehensive PRCT Matrix for each, ranked by compliance risk"
   output_format:
     type: structured_documentation
     includes:
-      - regulation_details
-      - compliance_matrix
-      - implementation_guides
-      - PRCT Matrix
-  output_file : search_results/global_regulations.md
+      - ranked_critical_regulations
+      - compliance_risk_justifications
+      - evidence_requirements
+      - detailed_compliance_tests
+  output_file: search_results/global_regulations.md
   agent: global_regulations_researcher
-
-uae_regulations_research_task:
-  description: >
-    Document ALL UAE-specific regulations with complete and  latest detail up to {current_date}:
-    1- Search for up-to-date UAE regulations  of {topic}
-    2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for UAE regulations.
-    4. Validate information against multiple sources
-    5- Include the reference webpage title and URL.
-    6- Suggest PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process : What is the process that is detailed in this point.
-      B- Risk : What the the possible risk that can be associated with that point.
-      C- Risk Rating: Give this risk a rating (High / Medium / Low)
-      D- Control : What is the required control to mitigate the above risk (A)
-      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
-  expected_output: "Complete detailed Results with reference URL for each point including UAE regulation documentation, full compliance requirements, implementation guidelines, and suggested PRTC Matrix for each point"
-  output_format:
-    type: structured_documentation
-    includes:
-      - regulation_details
-      - compliance_matrix
-      - implementation_guides
-      - PRCT Matrix
-  output_file: search_results/uae_regulations.md
-  agent: uae_regulations_researcher
 
 standards_research_task:
   description: >
-    Document ALL relevant {topic} standards with complete and  latest detail up to {current_date}:
-    1- Search for up-to-date standards of {topic}
-    2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for standards.
-    4. Validate information against multiple sources
-    5- Include the reference webpage title and URL.
-    6- Suggest PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process : What is the process that is detailed in this point.
-      B- Risk : What the the possible risk that can be associated with that point.
-      C- Risk Rating: Give this risk a rating (High / Medium / Low)
-      D- Control : What is the required control to mitigate the above risk (A)
-      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
-  expected_output: "Detailed Results with reference URL for each point including standards documentation, full requirements, implementation guidelines, and suggested PRTC Matrix for each point"
+    Document TOP 10 most critical {topic} standards with latest detail up to {current_date}:
+    1- Search for up-to-date standards of {topic} focusing on those most critical for audit compliance
+    2- Search query must target authoritative sources (ISO, IEC, industry bodies, professional associations)
+    3- Search query must include "compliance" OR "certification" OR "best practice" OR "audit" keywords
+    4- When scraping websites, prioritize content about certification requirements and compliance verification
+    5- For each standard found, include:
+       - Source website title and URL
+       - Standard's scope and applicability to different organization types
+       - Certification/compliance verification process
+       - Common gaps or challenges in meeting this standard
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Specific standard requirement and implementation process
+      B- Risk: Consequences of non-compliance or inadequate implementation
+      C- Risk Rating: Rate each risk (High/Medium/Low) with justification
+      D- Control: Required controls to ensure compliance with the standard
+      E- Test: Detailed test steps auditors should follow to verify standard implementation
+    7- Rank standards by risk level (High to Low) and focus on the top 10 most critical items
+  expected_output: "Top 10 critical standards with comprehensive PRCT Matrix for each, ranked by compliance importance"
   output_format:
     type: structured_documentation
     includes:
-      - standards_details
-      - requirements_matrix
-      - implementation_guides
-      - PRCT Matrix
+      - ranked_critical_standards
+      - implementation_requirements
+      - certification_processes
+      - detailed_verification_tests
   output_file: search_results/standards.md
   agent: standards_researcher
 
 risk_research_task:
   description: >
-    Document ALL relevant {topic} risks with complete and  latest detail up to {current_date}:
-    1- Search for up-to-date risks of {topic}
-    2. Scrape content from top 5 relevant URLs
-    3. Analyze scraped content for risks.
-    4. Validate information against multiple sources
-    5- Include the reference webpage title and URL.
-    6- Suggest PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process : What is the process that is detailed in this point.
-      B- Risk : What the the possible risk that can be associated with that point.
-      C- Risk Rating: Give this risk a rating (High / Medium / Low)
-      D- Control : What is the required control to mitigate the above risk (A)
-      E- Test : List down the test steps needed to ensure that control is effectively mitigating the above risk (B).
-  expected_output: "Numbered list of top 10 risks with risk description, likelihood assessment, potential impact, source URLs, and suggested PRTC Matrix for each point"
+    Document TOP 10 most critical {topic} risks with latest detail up to {current_date}:
+    1- Search for up-to-date risks of {topic} focusing on those with highest potential impact
+    2- Search query must target authoritative sources (risk management publications, audit firms, industry reports)
+    3- Search query must include "emerging risks" OR "critical risks" OR "audit failure" OR "compliance failure" keywords
+    4- When scraping websites, prioritize content about risk quantification and real-world case studies
+    5- For each risk found, include:
+       - Source website title and URL
+       - Risk description with specific examples or case studies
+       - Early warning indicators that auditors should look for
+       - Industry benchmarks or statistics on risk prevalence
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Business process where this risk typically manifests
+      B- Risk: Detailed risk description with impact assessment and likelihood
+      C- Risk Rating: Rate each risk (High/Medium/Low) with quantitative justification where possible
+      D- Control: Most effective controls to mitigate this risk, including preventive and detective controls
+      E- Test: Detailed test steps auditors should follow to assess risk exposure and control effectiveness
+    7- Rank risks by severity (High to Low) and focus on the top 10 most critical items
+  expected_output: "Top 10 critical risks with comprehensive PRCT Matrix for each, ranked by severity"
   output_format:
     type: structured_documentation
     includes:
-      - risk_details
-      - PRCT Matrix
+      - ranked_critical_risks
+      - impact_assessment
+      - early_warning_indicators
+      - detailed_mitigation_strategies
   output_file: search_results/risk_analysis.md
   agent: risk_researcher
 
 prct_compilation_task:
   description: >
-    Compile and organize ALL PRCT matrices from research outputs:
-    1. Read all PRCT matrices from task outputs and result files
-    2. Categorize processes into logical groups
-    3. Within each process category:
-       - Prioritize risks from highest to lowest
-       - Aggregate related RCT entries while preserving all details
-    4. Create comprehensive compiled PRCT matrix including:
-       - Process Category
-       - Process Name
-       - Process Risk
-       - Risk Rating
-       - Control Measures
-       - Test Steps
+    Compile and prioritize PRCT matrices from all research outputs with focus on highest risk items:
+    1. Read all PRCT matrices from task outputs with special focus on top 10 items from each category
+    2. Organize findings into a consolidated risk-prioritized framework:
+       - Primary categorization by risk level (High, Medium, Low)
+       - Secondary categorization by process category
+    3. For each high-risk item identified:
+       - Validate consistency of risk ratings across different sources
+       - Identify complementary or conflicting control recommendations
+       - Highlight any gaps in control coverage
+       - Tag items that represent regulatory requirements vs. best practices
+    4. Create a comprehensive risk heat map that shows:
+       - Concentration of high risks by process area
+       - Regulatory vs. operational vs. financial risks
+       - Control maturity assessment guidelines
+    5. For the top 20 highest-risk items across all categories:
+       - Provide enhanced test procedures with pass/fail criteria
+       - Include sample audit evidence requirements
+       - Suggest remediation priorities and timelines
+    6. Format the final PRCT matrix to support efficient audit planning:
+       - Executive summary highlighting critical risk areas
+       - Risk-prioritized testing schedule
+       - Resource allocation recommendations
   dependencies:
     - sub_processes_research_task
     - global_regulations_research_task
     - uae_regulations_research_task
     - standards_research_task
     - risk_research_task
-  expected_output: "Comprehensive PRCT matrix compilation with categorized processes, prioritized risks, complete control measures, and detailed test steps"
+  expected_output: "Comprehensive risk-prioritized PRCT matrix focusing on top risks across all categories"
   output_format:
     type: structured_documentation
     includes:
-      - process_categories
-      - risk_prioritization
-      - control_measures
-      - test_procedures
+      - risk_heat_map
+      - prioritized_testing_schedule
+      - control_maturity_assessment
+      - evidence_requirements
   output_file: search_results/PRCT.md
   agent: prct_compilation_agent
 
 reporting_task:
   description: >
-    Compile ALL research findings from search_results folder into professional pre-audit report.
-    Include verbatim content from source files and ensure all transaction IDs/user mentions are preserved.
+    Compile all research findings with focus on critical risks and actionable recommendations:
+    1. Analyze all research outputs with emphasis on top 10 lists and PRCT matrix
+    2. Structure the report to highlight unmissable audit points:
+       - Executive summary of critical findings (maximum 2 pages)
+       - Risk heat map visualization showing concentration of high-risk areas
+       - Top 20 unmissable audit points across all categories
+       - Regulatory compliance calendar with upcoming deadlines
+    3. For each critical finding identified:
+       - Provide clear context on why this finding is important
+       - Include specific source references from authoritative sources
+       - Outline practical steps for addressing the finding
+       - Suggest audit procedures with sample sizes and selection criteria
+    4. Include special focus sections on:
+       - UAE-specific compliance requirements
+       - Emerging global regulatory trends
+       - Common audit pitfalls and how to avoid them
+       - Industry benchmarks and best practices
+    5. Format the report for practical usability:
+       - Include a detailed table of contents with section hyperlinks
+       - Use clear headings and subheadings for navigation
+       - Provide an audit planning checklist as an appendix
+       - Include a glossary of technical terms
   agent: reporting_analyst
   output_file: Pre_Audit_Report.md
-  expected_output: "Comprehensive report with Executive Summary, Detailed Findings, Compiled PRCT Matrix, and Complete Source References"
+  expected_output: "Actionable pre-audit report focusing on critical risks and practical recommendations"
   context:
     - sub_processes_research_task
     - global_regulations_research_task
@@ -172,34 +196,67 @@ reporting_task:
     sections:
       - title: Executive Summary
         components:
-          - Audit Scope
-          - Key Statistics
-      - title: Process Documentation
-        content_source: search_results/sub_processes.md
+          - Critical Risk Overview
+          - Key Audit Focus Areas
+          - Compliance Calendar
+      - title: Top 20 Unmissable Audit Points
+        components:
+          - Risk-Prioritized Findings
+          - Control Recommendations
+          - Testing Guidelines
+      - title: Process Analysis
+        content_source: search_results/top10_sub_processes.md
         include_format: full   
-      - title: Global Regulations
-        content_source: search_results/global_regulations.md
+      - title: Global Regulatory Requirements
+        content_source: search_results/top10_global_regulations.md
         include_format: full
-      - title: UAE Regulations
-        content_source: search_results/uae_regulations.md
+      - title: UAE Regulatory Requirements
+        content_source: search_results/top10_uae_regulations.md
         include_format: full
-      - title: Risk Analysis
-        content_source: search_results/risk_analysis.md
+      - title: Industry Standards
+        content_source: search_results/top10_standards.md
         include_format: full
-      - title: Compiled PRCT Matrix
+      - title: Risk Assessment
+        content_source: search_results/top10_risk_analysis.md
+        include_format: full
+      - title: PRCT Matrix
         content_source: search_results/PRCT.md
         include_format: full  
+      - title: Audit Planning Guidelines
+        components:
+          - Resource Allocation Recommendations
+          - Testing Schedule
+          - Evidence Collection Checklist
       - title: References
         components:
-          - All source URLs from research logs
+          - Authoritative Source Citations
   output_format:
     type: structured_documentation
     includes:
       - executive_summary
-      - process_documentation
-      - global_regulations
-      - uae_regulations
-      - risk_analysis
-      - PRCT_matrix
+      - risk_heat_map
+      - unmissable_audit_points
+      - compliance_calendar
+      - testing_guidelines
       - references
   output_file: Pre_Audit_Report.md
+
+uae_regulations_research_task:
+  description: >
+    Document TOP 10 most critical UAE-specific regulations for {topic} with latest detail up to {current_date}:
+    1- Search for up-to-date UAE regulations of {topic} focusing on high-impact requirements
+    2- Search query must target authoritative sources (UAE government sites, CBUAE, SCA, ADGM, DIFC)
+    3- Search query must include "compliance requirements" OR "mandatory" OR "penalties" OR "UAE" keywords
+    4- When scraping websites, prioritize content about compliance deadlines and UAE-specific requirements
+    5- For each regulation found, include:
+       - Source website title and URL
+       - Implementation deadlines specific to UAE entities
+       - UAE-specific compliance requirements that differ from global standards
+       - Recent regulatory developments or announced changes
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Specific UAE regulatory requirement and compliance process
+      B- Risk: Consequences of non-compliance in UAE context, including financial, reputational, and operational impacts
+      C- Risk Rating: Rate each risk (High/Medium/Low) with UAE-specific justification
+      D- Control: Required controls to ensure compliance in UAE jurisdiction, with focus on documentation requirements
+      E- Test: Detailed test steps auditors should follow to verify compliance with UAE regulations
+    7- Rank regulations by risk level (High to Low) and focus on the top 10 most critical items for UAE entities
