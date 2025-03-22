@@ -1,6 +1,6 @@
 sub_processes_research_task:
   description: >
-    Research and document TOP 10 most critical {topic} sub-processes that are essential for audit preparation, with latest detail up to {current_date}:
+    Research and document TOP 25 most critical {topic} sub-processes that are essential for audit preparation, with latest detail up to {current_date}:
     1- Search for up-to-date sub-processes of {topic} focusing on those with highest audit risk
     2- Search query must target reliable sources (government, professional bodies, educational institutions)
     3- Search query must include "high risk" OR "critical" OR "important" keywords
@@ -15,8 +15,8 @@ sub_processes_research_task:
       C- Risk Rating: Rate each risk (High/Medium/Low) with justification
       D- Control: Required controls to mitigate each risk, with focus on best practices
       E- Test: Detailed test steps that auditors should follow to verify control effectiveness
-    7- Rank findings by risk level (High to Low) and focus on the top 10 most critical items
-  expected_output: "Top 10 critical sub-processes with comprehensive PRCT Matrix for each, ranked by risk level"
+    7- Rank findings by risk level (High to Low) and focus on the top 25 most critical items
+  expected_output: "Top 25 critical sub-processes with comprehensive PRCT Matrix for each, ranked by risk level"
   output_format:
     type: structured_documentation
     includes:
@@ -29,7 +29,7 @@ sub_processes_research_task:
 
 global_regulations_research_task:
   description: >
-    Research and document TOP 10 most critical global regulations of {topic} with latest detail up to {current_date}:
+    Research and document TOP 25 most critical global regulations of {topic} with latest detail up to {current_date}:
     1- Search for up-to-date global regulations of {topic} focusing on high-impact requirements
     2- Search query must target authoritative sources (BIS, government sites, regulatory bodies)
     3- Search query must include "compliance requirements" OR "mandatory" OR "penalties" keywords
@@ -45,8 +45,8 @@ global_regulations_research_task:
       C- Risk Rating: Rate each risk (High/Medium/Low) with justification
       D- Control: Required controls to ensure compliance, with focus on audit evidence requirements
       E- Test: Detailed test steps auditors should follow to verify compliance
-    7- Rank regulations by risk level (High to Low) and focus on the top 10 most critical items
-  expected_output: "Top 10 critical global regulations with comprehensive PRCT Matrix for each, ranked by compliance risk"
+    7- Rank regulations by risk level (High to Low) and focus on the top 25 most critical items
+  expected_output: "Top 25 critical global regulations with comprehensive PRCT Matrix for each, ranked by compliance risk"
   output_format:
     type: structured_documentation
     includes:
@@ -57,9 +57,39 @@ global_regulations_research_task:
   output_file: search_results/global_regulations.md
   agent: global_regulations_researcher
 
+uae_regulations_research_task:
+  description: >
+    Document TOP 25 most critical UAE-specific regulations for {topic} with latest detail up to {current_date}:
+    1- Search for up-to-date UAE regulations of {topic} focusing on high-impact requirements
+    2- Search query must target authoritative sources (UAE government sites, CBUAE, SCA, ADGM, DIFC)
+    3- Search query must include "compliance requirements" OR "mandatory" OR "penalties" OR "UAE" keywords
+    4- When scraping websites, prioritize content about compliance deadlines and UAE-specific requirements
+    5- For each regulation found, include:
+       - Source website title and URL
+       - Implementation deadlines specific to UAE entities
+       - UAE-specific compliance requirements that differ from global standards
+       - Recent regulatory developments or announced changes
+    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
+      A- Process: Specific UAE regulatory requirement and compliance process
+      B- Risk: Consequences of non-compliance in UAE context, including financial, reputational, and operational impacts
+      C- Risk Rating: Rate each risk (High/Medium/Low) with UAE-specific justification
+      D- Control: Required controls to ensure compliance in UAE jurisdiction, with focus on documentation requirements
+      E- Test: Detailed test steps auditors should follow to verify compliance with UAE regulations
+    7- Rank regulations by risk level (High to Low) and focus on the top 25 most critical items for UAE entities
+  expected_output: "Top 25 critical UAE-specific regulations with comprehensive PRCT Matrix for each, ranked by compliance risk"
+  output_format:
+    type: structured_documentation
+    includes:
+      - ranked_critical_regulations
+      - compliance_risk_justifications
+      - evidence_requirements
+      - detailed_compliance_tests
+  output_file: search_results/uae_regulations.md
+  agent: uae_regulations_researcher
+
 standards_research_task:
   description: >
-    Document TOP 10 most critical {topic} standards with latest detail up to {current_date}:
+    Document TOP 25 most critical {topic} standards with latest detail up to {current_date}:
     1- Search for up-to-date standards of {topic} focusing on those most critical for audit compliance
     2- Search query must target authoritative sources (ISO, IEC, industry bodies, professional associations)
     3- Search query must include "compliance" OR "certification" OR "best practice" OR "audit" keywords
@@ -75,8 +105,8 @@ standards_research_task:
       C- Risk Rating: Rate each risk (High/Medium/Low) with justification
       D- Control: Required controls to ensure compliance with the standard
       E- Test: Detailed test steps auditors should follow to verify standard implementation
-    7- Rank standards by risk level (High to Low) and focus on the top 10 most critical items
-  expected_output: "Top 10 critical standards with comprehensive PRCT Matrix for each, ranked by compliance importance"
+    7- Rank standards by risk level (High to Low) and focus on the top 25 most critical items
+  expected_output: "Top 25 critical standards with comprehensive PRCT Matrix for each, ranked by compliance importance"
   output_format:
     type: structured_documentation
     includes:
@@ -89,7 +119,7 @@ standards_research_task:
 
 risk_research_task:
   description: >
-    Document TOP 10 most critical {topic} risks with latest detail up to {current_date}:
+    Document TOP 25 most critical {topic} risks with latest detail up to {current_date}:
     1- Search for up-to-date risks of {topic} focusing on those with highest potential impact
     2- Search query must target authoritative sources (risk management publications, audit firms, industry reports)
     3- Search query must include "emerging risks" OR "critical risks" OR "audit failure" OR "compliance failure" keywords
@@ -105,8 +135,8 @@ risk_research_task:
       C- Risk Rating: Rate each risk (High/Medium/Low) with quantitative justification where possible
       D- Control: Most effective controls to mitigate this risk, including preventive and detective controls
       E- Test: Detailed test steps auditors should follow to assess risk exposure and control effectiveness
-    7- Rank risks by severity (High to Low) and focus on the top 10 most critical items
-  expected_output: "Top 10 critical risks with comprehensive PRCT Matrix for each, ranked by severity"
+    7- Rank risks by severity (High to Low) and focus on the top 25 most critical items
+  expected_output: "Top 25 critical risks with comprehensive PRCT Matrix for each, ranked by severity"
   output_format:
     type: structured_documentation
     includes:
@@ -120,7 +150,7 @@ risk_research_task:
 prct_compilation_task:
   description: >
     Compile and prioritize PRCT matrices from all research outputs with focus on highest risk items:
-    1. Read all PRCT matrices from task outputs with special focus on top 10 items from each category
+    1. Read all PRCT matrices from task outputs with special focus on top 25 items from each category
     2. Organize findings into a consolidated risk-prioritized framework:
        - Primary categorization by risk level (High, Medium, Low)
        - Secondary categorization by process category
@@ -161,7 +191,7 @@ prct_compilation_task:
 reporting_task:
   description: >
     Compile all research findings with focus on critical risks and actionable recommendations:
-    1. Analyze all research outputs with emphasis on top 10 lists and PRCT matrix
+    1. Analyze all research outputs with emphasis on top 25 lists and PRCT matrix
     2. Structure the report to highlight unmissable audit points:
        - Executive summary of critical findings (maximum 2 pages)
        - Risk heat map visualization showing concentration of high-risk areas
@@ -205,19 +235,19 @@ reporting_task:
           - Control Recommendations
           - Testing Guidelines
       - title: Process Analysis
-        content_source: search_results/top10_sub_processes.md
+        content_source: search_results/sub_processes.md
         include_format: full   
       - title: Global Regulatory Requirements
-        content_source: search_results/top10_global_regulations.md
+        content_source: search_results/global_regulations.md
         include_format: full
       - title: UAE Regulatory Requirements
-        content_source: search_results/top10_uae_regulations.md
+        content_source: search_results/uae_regulations.md
         include_format: full
       - title: Industry Standards
-        content_source: search_results/top10_standards.md
+        content_source: search_results/standards.md
         include_format: full
       - title: Risk Assessment
-        content_source: search_results/top10_risk_analysis.md
+        content_source: search_results/risk_analysis.md
         include_format: full
       - title: PRCT Matrix
         content_source: search_results/PRCT.md
@@ -240,23 +270,3 @@ reporting_task:
       - testing_guidelines
       - references
   output_file: Pre_Audit_Report.md
-
-uae_regulations_research_task:
-  description: >
-    Document TOP 10 most critical UAE-specific regulations for {topic} with latest detail up to {current_date}:
-    1- Search for up-to-date UAE regulations of {topic} focusing on high-impact requirements
-    2- Search query must target authoritative sources (UAE government sites, CBUAE, SCA, ADGM, DIFC)
-    3- Search query must include "compliance requirements" OR "mandatory" OR "penalties" OR "UAE" keywords
-    4- When scraping websites, prioritize content about compliance deadlines and UAE-specific requirements
-    5- For each regulation found, include:
-       - Source website title and URL
-       - Implementation deadlines specific to UAE entities
-       - UAE-specific compliance requirements that differ from global standards
-       - Recent regulatory developments or announced changes
-    6- Provide comprehensive PRCT (Process - Risk - Control - Tests) Matrix for each point:
-      A- Process: Specific UAE regulatory requirement and compliance process
-      B- Risk: Consequences of non-compliance in UAE context, including financial, reputational, and operational impacts
-      C- Risk Rating: Rate each risk (High/Medium/Low) with UAE-specific justification
-      D- Control: Required controls to ensure compliance in UAE jurisdiction, with focus on documentation requirements
-      E- Test: Detailed test steps auditors should follow to verify compliance with UAE regulations
-    7- Rank regulations by risk level (High to Low) and focus on the top 10 most critical items for UAE entities
