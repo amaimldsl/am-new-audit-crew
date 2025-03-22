@@ -195,7 +195,7 @@ reporting_task:
     2. Structure the report to highlight unmissable audit points:
        - Executive summary of critical findings (maximum 2 pages)
        - Risk heat map visualization showing concentration of high-risk areas
-       - Top 20 unmissable audit points across all categories
+       - Top 25 unmissable audit points across all categories
        - Regulatory compliance calendar with upcoming deadlines
     3. For each critical finding identified:
        - Provide clear context on why this finding is important

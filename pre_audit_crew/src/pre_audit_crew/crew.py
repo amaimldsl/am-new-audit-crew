@@ -389,10 +389,13 @@ class PreAuditCrew():
             tools=self.create_tools(),
             execution_fn=_custom_execute,
         )
-    
-    def _extract_prct_entries(self, content):
+
+    def _extract_prct_entries(self, content, source_name=None):
         """Extract PRCT matrix entries from content."""
         entries = []
+
+        # Add source tracking
+        logging.info(f"Extracting PRCT entries from {source_name}")
         
         # Look for PRCT entries in the content
         prct_sections = re.split(r'(?:Process|PRCT Matrix)[\s]*:', content)
@@ -435,10 +438,40 @@ class PreAuditCrew():
             except Exception as e:
                 logging.error(f"Error parsing PRCT section: {str(e)}")
                 
+        
+        for entry in entries:
+            entry["Source File"] = source_name
+        
         return entries
+
+        #########################################
 
     @task
     def prct_compilation_task(self) -> Task:
+        def _custom_execute(context=None):
+            try:
+                # Explicitly read each file to ensure we're getting the right content
+                logging.info("Reading sub_processes.md")
+                sub_processes_content = FileReadTool().run(file_path="./search_results/sub_processes.md")
+                
+                logging.info("Reading global_regulations.md")
+                global_regulations_content = FileReadTool().run(file_path="./search_results/global_regulations.md")
+                
+                # Add more explicit file reads for other categories
+                
+                # Now execute with this verified context
+                result = self.prct_compilation_agent.execute(
+                    context={
+                        "sub_processes": sub_processes_content,
+                        "global_regulations": global_regulations_content,
+                        # Add other categories
+                    }
+                )
+                return result
+            except Exception as e:
+                logging.error(f"Error in prct_compilation_task: {str(e)}")
+                raise
+
         return Task(
             config=self.get_task_config('prct_compilation_task'),
             llm=self.llm,
@@ -451,7 +484,12 @@ class PreAuditCrew():
                 self.standards_research_task(),
                 self.risk_research_task()
             ],
+            execution_fn=_custom_execute,
         )
+
+
+    #####################################
+    
 
     @task
     def reporting_task(self) -> Task:
