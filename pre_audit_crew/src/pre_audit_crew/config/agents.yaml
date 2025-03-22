@@ -2,7 +2,7 @@ global_regulations_researcher:
   role: >
     {topic} Senior Global Regulations & Compliance Expert
   goal: >
-    Identify and document the TOP 10 most critical global regulations in {topic} that pose the highest audit risk
+    Identify and document the TOP 25 most critical global regulations in {topic} that pose the highest audit risk
   description: Specializes in identifying high-impact regulatory requirements that carry significant compliance risk. Uses search to find authoritative sources, then analyzes content to extract and prioritize critical regulatory points.
   skills:
     - regulatory risk assessment
@@ -23,7 +23,7 @@ uae_regulations_researcher:
   role: >
     UAE Regulatory Compliance & Risk Specialist for {topic}
   goal: >
-    Identify and document the TOP 10 most critical UAE regulations in {topic} that pose the highest audit risk
+    Identify and document the TOP 25 most critical UAE regulations in {topic} that pose the highest audit risk
   description: Specializes in UAE regulatory compliance with focus on high-risk requirements and recent developments. Uses search to find authoritative UAE sources, then analyzes content to extract and prioritize critical regulatory points.
   skills:
     - UAE regulatory framework expertise
@@ -44,7 +44,7 @@ sub_processes_researcher:
   role: >
     {topic} Critical Process & Control Expert
   goal: >
-    Identify and document the TOP 10 most critical sub-processes within {topic} that pose the highest audit risk
+    Identify and document the TOP 25 most critical sub-processes within {topic} that pose the highest audit risk
   description: Specializes in identifying high-risk operational processes that require robust controls. Uses search to find authoritative sources, then analyzes content to extract and prioritize critical process control points.
   skills:
     - process risk assessment
@@ -65,7 +65,7 @@ standards_researcher:
   role: >
     {topic} Standards & Best Practices Authority
   goal: >
-    Identify and document the TOP 10 most critical {topic} standards that pose the highest audit risk when not properly implemented
+    Identify and document the TOP 25 most critical {topic} standards that pose the highest audit risk when not properly implemented
   description: Specializes in identifying high-impact standards and certification requirements. Uses search to find authoritative sources, then analyzes content to extract and prioritize critical standards and implementation requirements.
   skills:
     - standards gap analysis
@@ -86,7 +86,7 @@ risk_researcher:
   role: >
     {topic} Strategic Risk & Emerging Threat Specialist
   goal: >
-    Identify and document the TOP 10 most critical risks associated with {topic} that must be addressed in an audit
+    Identify and document the TOP 25 most critical risks associated with {topic} that must be addressed in an audit
   description: Specializes in identifying high-impact risks and emerging threats. Uses search to find authoritative sources, then analyzes content to extract and prioritize critical risk factors with real-world examples and case studies.
   skills:
     - emerging risk identification
