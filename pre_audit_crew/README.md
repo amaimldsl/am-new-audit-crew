@@ -1,54 +1,83 @@
-# PreAuditCrew Crew
+# Pre-Audit Crew System
 
-Welcome to the PreAuditCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+## Overview
 
-## Installation
+The Pre-Audit Crew System is an AI-powered tool designed to generate comprehensive audit preparation materials by researching and analyzing various aspects of a specified audit subject. The system leverages multiple specialized agents to collect, process, and synthesize information from authoritative sources on the web, creating a detailed, risk-prioritized report to guide audit planning.
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+## Key Features
 
-First, if you haven't already, install uv:
+- **Multi-Agent Architecture**: Utilizes specialized AI agents for different research domains
+- **Risk-Based Focus**: Prioritizes high-risk areas for efficient audit planning
+- **Enhanced Language Detection**: Automatically identifies and filters non-English content
+- **Website Tracking**: Maintains a database of problematic websites to avoid during research
+- **Comprehensive Reporting**: Produces structured documentation with PRCT matrices
 
-```bash
-pip install uv
-```
+## Core Components
 
-Next, navigate to your project directory and install the dependencies:
+1. **Specialized Research Agents**:
+   - Global Regulations Researcher
+   - UAE Regulations Researcher
+   - Sub-Processes Researcher
+   - Standards Researcher
+   - Risk Researcher
+   - PRCT Matrix Compilation Agent
+   - Reporting Analyst
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+2. **Enhanced Web Scraping**:
+   - Automatic language detection
+   - Content processing and cleanup
+   - Error tracking and recovery
+   - Document type filtering
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+3. **LLM Error Handling**:
+   - Exponential backoff with jitter
+   - Comprehensive error tracking
+   - Performance statistics collection
 
-- Modify `src/pre_audit_crew/config/agents.yaml` to define your agents
-- Modify `src/pre_audit_crew/config/tasks.yaml` to define your tasks
-- Modify `src/pre_audit_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/pre_audit_crew/main.py` to add custom inputs for your agents and tasks
+## Output Files
 
-## Running the Project
+The system generates multiple output files:
+- `Pre_Audit_Report.md`: The main consolidated report with key findings
+- `search_results/sub_processes.md`: Critical sub-processes analysis
+- `search_results/global_regulations.md`: Global regulatory requirements
+- `search_results/uae_regulations.md`: UAE-specific regulations
+- `search_results/standards.md`: Industry standards analysis
+- `search_results/risk_analysis.md`: Critical risk assessment
+- `search_results/PRCT.md`: Consolidated Process-Risk-Control-Test matrix
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+## Usage
 
-```bash
-$ crewai run
-```
+1. Run the main script:
+   ```
+   python src/pre_audit_crew/main.py
+   ```
 
-This command initializes the pre-audit-crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+2. Enter the audit subject when prompted (e.g., "Basel III Compliance", "IFRS 9 Implementation")
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+3. The system will begin research, displaying progress updates
 
-## Understanding Your Crew
+4. Upon completion, review the generated report and supporting files
 
-The pre-audit-crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+## Configuration
 
-## Support
+- `config/agents.yaml`: Agent roles, goals, skills, and backstories
+- `config/tasks.yaml`: Task descriptions, output formats, and dependencies
+- `.env`: Environment variables for API keys and model settings
 
-For support, questions, or feedback regarding the PreAuditCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+## Dependencies
 
-Let's create wonders together with the power and simplicity of crewAI.
+- CrewAI: Framework for multi-agent systems
+- LiteLLM: Interface for large language models
+- BeautifulSoup: HTML parsing and content extraction
+- Chardet: Character encoding detection
+- LangDetect: Language identification (optional)
+
+## Error Handling
+
+The system includes robust error management:
+- Language detection fallback mechanisms
+- Automatic tracking of problematic websites
+- Session statistics for monitoring performance
+- Detailed logging for troubleshooting
+
+This system provides a comprehensive, risk-focused pre-audit analysis that helps auditors identify critical areas requiring attention, streamlining the audit planning process and improving audit effectiveness.
